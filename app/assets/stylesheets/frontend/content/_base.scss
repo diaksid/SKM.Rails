@@ -1,0 +1,66 @@
+.mdl-grid {
+  main.mdl-cell {
+    order: 2;
+    flex-grow: 1;
+    min-height: 800px;
+  }
+
+  aside.mdl-cell {
+    order: 1;
+    width: $layout-drawer-width;
+  }
+}
+
+.c-content__container {
+  a {
+    color: $link-color;
+
+    &:hover,
+    &:focus {
+      color: $link-hover-color;
+    }
+  }
+}
+
+.c-content__mosaic {
+  margin-top: 10vh;
+}
+
+.c-banner {
+  position: relative;
+  overflow: hidden;
+
+  .c-banner__frame {
+    transition: transform 0.4s ease-in-out;
+    will-change: transform;
+  }
+
+  .c-banner__title {
+    transition: all 0.4s;
+    will-change: background-color;
+  }
+
+  &:hover {
+    .c-banner__frame {
+      transform: scale(1.1);
+    }
+
+    .c-banner__title {
+      background: rgba(0, 0, 0, .5);
+    }
+  }
+}
+
+.c-banner__title {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 16px;
+  color: unquote("rgb(#{$color-white})");
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, .2);
+}

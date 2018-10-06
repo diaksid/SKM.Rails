@@ -1,0 +1,6 @@
+- if not flash.empty?
+  - flash.each do |type, message|
+    .c-message--flash[data-type=type] = message
+  @note.mdl-snackbar.mdl-js-snackbar
+    .mdl-snackbar__text
+    button&button.mdl-snackbar__action

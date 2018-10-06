@@ -1,0 +1,105 @@
+.h-font {
+  &--max {
+    font-size: 110%;
+  }
+
+  &--min {
+    font-size: 90%;
+  }
+}
+
+.h-text {
+  &--readable {
+    overflow-y: auto;
+    max-height: 10vh;
+    padding: 0.5rem 0.3rem;
+    font-size: 110%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: $border-width solid rgba(255, 255, 255, 0.5);
+    border-radius: $border-radius / 2;
+    cursor: default;
+
+    &-min {
+      max-height: 5vh;
+    }
+
+    &-max {
+      max-height: 20rem;
+    }
+  }
+}
+
+.h-d {
+  &--flex {
+    display: flex !important;
+  }
+
+  &--block {
+    display: block !important;
+  }
+
+  &--inline-block {
+    display: inline-block !important;
+  }
+
+  &--inline {
+    display: inline !important;
+  }
+}
+
+.h-float {
+  &--left {
+    float: left;
+  }
+
+  &--right {
+    float: right;
+  }
+}
+
+.h-clear {
+  &--both {
+    clear: both;
+  }
+
+  &--left {
+    clear: left;
+  }
+
+  &--right {
+    clear: right;
+  }
+}
+
+.h-m_x--auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.h-width {
+  &--icon {
+    width: 6.5rem !important;
+  }
+
+  &--int {
+    width: 4rem !important;
+  }
+
+  &--bool {
+    width: 5rem !important;
+  }
+
+  &--datetime {
+    width: 7rem !important;
+  }
+
+  &--date {
+    width: 6rem !important;
+  }
+}
+
+@for $i from 1 through 10 {
+  .h-width--#{$i * 10} {
+    width: percentage($i / 10) !important;
+  }
+}

@@ -1,0 +1,10 @@
+Style:
+  Documentation:
+    Enabled: false
+
+Layout:
+  EndOfLine:
+    EnforcedStyle: lf
+
+Metrics:
+  LineLenght: false

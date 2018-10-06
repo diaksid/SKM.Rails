@@ -1,0 +1,8 @@
+- local_assigns[:lazy] = false
+img *attachment_render_attributes(img, local_assigns)
+
+- if local_assigns[:attached] && local_assigns[:links]
+  - if local_assigns[:links][:image]
+    link%image href=url_for(img.variant resize_to_area *local_assigns[:links][:image])
+  - if local_assigns[:links][:thumbnail]
+    link%thumbnailUrl href=url_for(img.variant resize_to_fill local_assigns[:links][:thumbnail])

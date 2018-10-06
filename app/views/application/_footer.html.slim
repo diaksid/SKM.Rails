@@ -1,0 +1,26 @@
+footer#footer.mdl-mini-footer
+  .mdl-mini-footer__left-section
+    a.mdl-logo[
+      class=link_status(root_path)
+      href=root_path
+      ] = t 'application.label'
+
+    ul.mdl-mini-footer__link-list
+      li: a href="#" Справочник
+      li: a href="#" Политика конфиденциальности
+
+  .mdl-mini-footer__right-section
+    small%copyrightHolder>
+      a%author.h-text--href[
+        href='//daks.pro?rel=author'
+        target='_blank'
+        ] DAkS
+    ' &copy;
+    small%copyrightYear> = DateTime.now.year
+
+    - if user_signed_in?
+      - if current_user.staff?
+        button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect[data-w3c=true]
+          i.material-icons bug_report
+    button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect[data-click='/admin']
+      i.material-icons settings

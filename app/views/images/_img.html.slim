@@ -1,0 +1,18 @@
+- if local_assigns[:lightbox].blank?
+  - original = img.upload.image || img.upload
+  img%thumbnailUrl[
+    class=local_assigns[:class_name]
+    src=img.upload.thumb.url
+    width=img.upload.thumb.width
+    height=img.upload.thumb.height
+    data-lightbox=lightbox
+    data-lightbox-href=original.url
+    ]
+  link%image[href=original.url]
+- else
+  img%image[
+    class=local_assigns[:class_name]
+    src=img.upload.thumb.url
+    width=img.upload.thumb.width
+    height=img.upload.thumb.height
+    ]

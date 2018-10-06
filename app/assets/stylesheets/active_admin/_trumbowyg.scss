@@ -1,0 +1,114 @@
+@import "trumbowyg/dist/ui/sass/trumbowyg";
+
+.trumbowyg-box {
+  display: inline-block;
+  margin: 0;
+  min-height: auto;
+  width: calc(80% - 22px);
+
+  &.trumbowyg-fullscreen {
+    left: calc(10% + 11px);
+    @include shadow-4dp();
+
+    .trumbowyg-editor {
+      min-height: auto;
+      max-height: none;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    color: #222;
+    text-shadow: none;
+
+    &:hover,
+    &.trumbowyg-active,
+    &.trumbowyg-active-button {
+      background-color: white
+    }
+  }
+}
+
+.trumbowyg-editor {
+  min-height: 10rem;
+  max-height: 20rem;
+  font-size: 110%;
+  background-color: white;
+
+  * {
+    margin: initial;
+    padding: initial;
+    text-align: initial;
+  }
+
+  p {
+    margin-bottom: .5em;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ul, ol {
+    margin: 0 1.5em 1.5em 0;
+    padding-left: 1.5em;
+  }
+}
+
+.trumbowyg-button-pane {
+  background: transparent;
+  border-bottom: 0 none;
+}
+
+.trumbowyg-dropdown > button:hover {
+  background-color: #ecf0f1;
+}
+
+.trumbowyg-modal {
+  input[type="text"] {
+    border: 1px solid #dedede;
+    height: 27px;
+    min-width: auto;
+    width: 70%;
+  }
+
+  label {
+    float: none;
+    font-weight: normal;
+    height: 27px;
+    width: auto;
+  }
+}
+
+.trumbowyg-modal-button {
+  line-height: initial;
+
+  &.trumbowyg-modal-submit {
+    color: white
+  }
+}
+
+li.redactor {
+  &--min {
+    .trumbowyg-editor {
+      min-height: auto;
+      max-height: 10rem;
+    }
+  }
+  &--max {
+    .trumbowyg-editor {
+      min-height: 20rem;
+      max-height: 40rem;
+    }
+  }
+  &--auto {
+    .trumbowyg-editor {
+      min-height: auto;
+      max-height: none;
+    }
+  }
+}

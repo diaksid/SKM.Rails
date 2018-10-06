@@ -1,0 +1,21 @@
+---
+ru:
+  activerecord:
+    models:
+      image:
+        one: "Изображение"
+        few: "Изображения"
+        many: "Изображений"
+        other: "Изображения"
+    attributes:
+      image:
+        title: "Заголовок"
+        description: "Описание"
+        upload: "Файл"
+        upload_crop: "Кадрировать"
+        index: "IDX"
+        resource: "Ресурс"
+        resource_type: "Тип ресурса"
+        created_at: "Создано"
+        updated_at: "Изменено"
+...

@@ -1,0 +1,21 @@
+size ||= 96
+fit ||= false
+
+html do
+    form.inputs do
+        form.input :attaches, as: :file,
+                input_html: {multiple: true, accept: 'image/*'}
+        form.input :attaches_purge, as: :boolean,
+                input_html: {disabled: resource.attaches.empty?}
+    end unless form.object.new_record?
+
+    form.has_many :attaches_attachments, heading: false, class: 'has-attachment',
+                  sortable: 'index', allow_destroy: true, new_record: false do |f|
+        f.input :blob, as: :attached_icon, size: size, fit: fit,
+                wrapper_html: {class: 'handle'}
+        f.input :filename,
+                input_html: {class: 'h-width--30', disabled: true}
+        f.input :kbyte_size,
+                input_html: {class: 'h-width--10', disabled: true}
+    end unless form.object.attaches.empty?
+end

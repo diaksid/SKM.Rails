@@ -1,0 +1,30 @@
+(function($) {
+  $(function () {
+    $('[data-redactor]').each(function () {
+      var options = {
+        svgPath: '<%= asset_path('trumbowyg/dist/ui/icons.svg') %>',
+        lang: 'ru',
+        btns: [
+          ['viewHTML'],
+          ['undo', 'redo'],
+          ['formatting'],
+          ['strong', 'b', 'em', 'del'],
+          ['superscript', 'subscript'],
+          ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+          ['unorderedList', 'orderedList'],
+          ['removeformat'],
+          ['fullscreen']
+        ],
+        autogrow: true,
+        semantic: false,
+        resetCss: true
+      }
+      var obj = $(this)
+      obj.trumbowyg($.extend(
+        {},
+        options,
+        obj.data('redactor')
+      ))
+    })
+  })
+}).call(this, $)

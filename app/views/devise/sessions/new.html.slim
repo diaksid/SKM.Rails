@@ -1,0 +1,35 @@
+ruby:
+  @header = t '.sign_in', default: 'Sign in'
+
+
+.row
+  .col-xs-12.col-md-10.col-lg-8.col-xl-6
+    = form_for resource, \
+               as: resource_name, \
+               url: session_path(resource_name), \
+               html: {class: 'clearfix'} do |f|
+      fieldset.form-group
+        = f.label :email, class: 'sr-only'
+        = f.email_field :email, \
+          class: 'form-control', autofocus: true, \
+          placeholder: t('activerecord.attributes.user.email', default: "Email")
+        small.text-muted &nbsp;
+
+      fieldset.form-group
+        = f.label :password, class: 'sr-only'
+        = f.password_field :password, \
+          class: 'form-control', autocomplete: false, \
+          placeholder: t('activerecord.attributes.user.password', default: "Password")
+        small.text-muted &nbsp;
+
+      - if devise_mapping.rememberable?
+        .checkbox.pull-xs-right
+          label
+            => f.check_box :remember_me
+            = t 'activerecord.attributes.user.remember_me', default: "Remember me"
+
+      .actions.m-b-2
+        = f.button class: 'btn btn-primary' do
+          span.icon.icon-sign-in.font-size-lg aria-hidden='true'
+
+    = render "devise/shared/links"

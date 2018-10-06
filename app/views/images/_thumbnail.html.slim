@@ -1,0 +1,6 @@
+.mdl-cell.mdl-cell--3-col-desktop
+  .c-img--thumbnail
+    - if local_assigns[:lightbox]
+      .c-banner: .c-banner__frame = yield
+    - else
+      = yield

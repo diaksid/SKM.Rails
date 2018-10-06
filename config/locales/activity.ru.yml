@@ -1,0 +1,31 @@
+---
+ru:
+  activerecord:
+    models:
+      activity:
+        one: "Деятельность"
+        few: "Деятельности"
+        many: "Деятельностей"
+        other: "Деятельности"
+    attributes:
+      activity:
+        published: "Опубликовано"
+        navigated: "В навигации"
+        name: "Название"
+        header: "Заголовок"
+        label: "Меню"
+        content: "Содержимое"
+        partial: "Шаблон"
+        created_at: "Создано"
+        updated_at: "Изменено"
+        index: "IDX"
+        ancestry_depth: "Уровень"
+        parent: "Предок"
+        parent_id: "Предок"
+        child: "Потомок"
+        children: "Потомки"
+        areas: "Области деятельности"
+        images: "Изображения"
+        images_purge: "Очистить"
+        image: "Баннер"
+...

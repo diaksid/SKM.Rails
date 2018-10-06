@@ -1,0 +1,19 @@
+h2.m-t-0.m-b-3 = t '.resend_confirmation_instructions', default: "Resend confirmation instructions"
+
+= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |f|
+  = devise_error_messages!
+
+  fieldset.form-group
+    = f.label :email, class: 'sr-only'
+    = f.email_field :email, \
+      value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), \
+      class: 'form-control', autofocus: true, \
+      placeholder: t('activerecord.attributes.user.email', default: "Email")
+    small.text-muted &nbsp;
+
+  .actions.m-b-2
+    = f.button class: 'btn btn-primary' do
+      span.icon.icon-send.font-size-lg aria-hidden='true'
+
+= render "devise/shared/links"
+

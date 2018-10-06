@@ -1,0 +1,13 @@
+p
+  ' oт
+  b = @model.name
+p
+  ' &lt;
+  a> href="mailto://#{@model.email}" = @model.email
+  | &gt;
+  - if @model.phone
+    a<[href="tel://#{@model.phone.squish}"] = @model.phone
+
+br
+
+== @model.content

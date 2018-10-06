@@ -1,0 +1,47 @@
+---
+ru:
+  targets:
+    index:
+      label: "Объекты"
+      title: "Объекты"
+      description: "Объекты Строительной Компании «Масштаб»"
+      header: "Объекты <small>Строительная Компания «Масштаб»</small>"
+
+  activerecord:
+    models:
+      target:
+        one: "Объект"
+        few: "Объекта"
+        many: "Объектов"
+        other: "Объекты"
+    attributes:
+      target:
+        published: "Опубликовано"
+        navigated: "В навигации"
+        importance: "Значимость"
+        start_at: "Начало"
+        finish_at: "Окончание"
+        name: "Название"
+        header: "Заголовок"
+        content: "Описание"
+        address: "Адрес"
+        geo: "Геокоординаты"
+        website: "Сайт"
+        index: "IDX"
+        created_at: "Создано"
+        updated_at: "Изменено"
+        customer: "Заказчик"
+        areas: "Области деятельности"
+        attaches: "Изображения"
+        attaches_purge: "Очистить"
+        attach: "Баннер"
+
+  active_admin:
+    scopes:
+      individual: "Без заказчика"
+      weight: "Значимость"
+    panels:
+      activity: "Деятельность"
+    local:
+      targets: "Объекты (%{count})"
+...

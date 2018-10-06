@@ -1,0 +1,30 @@
+@import "material-design-lite/src/mixins";
+
+// Text
+
+@mixin text-href($color: null) {
+  color: $link-color;
+  transition: color 0.2s $animation-curve-default;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color !important;
+  }
+
+  @if $color {
+    &.is-active,
+    .is-active > & {
+      color: $color;
+    }
+  }
+}
+
+// Images
+
+@mixin img-response($display: null) {
+  @if $display {
+    display: $display;
+  }
+  max-width: 100%;
+  height: auto;
+}

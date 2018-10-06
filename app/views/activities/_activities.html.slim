@@ -1,0 +1,2 @@
+- cache ['layout', (@model.instance_of?(Activity) ? @model.id : 'activities')] do
+  = render partial: 'activities/activity', collection: Activity.roots.navigated, as: :activity

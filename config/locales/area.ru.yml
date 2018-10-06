@@ -1,0 +1,19 @@
+---
+ru:
+  activerecord:
+    models:
+      area:
+        one: "Область"
+        few: "Области"
+        many: "Областей"
+        other: "Области"
+    attributes:
+      area:
+        active: "Активно"
+        name: "Название"
+        index: "IDX"
+        created_at: "Создано"
+        updated_at: "Изменено"
+        activities: "Деятельности"
+        targets: "Объекты"
+...

@@ -1,0 +1,14 @@
+size ||= 96
+fit ||= false
+
+html do
+    table_for resource.attaches.order(:index) do
+        column :index, class: 'h-width--int'
+        column_aimg :blob, class: 'h-width--icon',
+                    href: false, size: size, fit: fit
+        column :filename, class: 'h-width--30'
+        column :kbyte_size
+        column :created_at, class: 'h-width--date'
+        column :id, class: 'h-width--int'
+    end
+end

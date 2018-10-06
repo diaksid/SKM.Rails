@@ -1,0 +1,60 @@
+- cache @model do
+  ruby:
+    def website(model, *args)
+      (model.website.blank? ?
+        {tag: 'div'} :
+        {tag: 'a',
+         rel: 'nofollow',
+         href: model.website,
+         target: '_blank'}).merge *args
+    end
+
+  scss:
+    .c-content__container{
+      a.mdl-typography--subhead {
+        vertical-align: top;
+        white-space: nowrap;
+      }
+      .mdl-list {
+        max-width: 640px;
+
+        a:hover {
+          .c-banner__frame {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .c-img--thumbnail {
+        margin-right: 2vw;
+      }
+    }
+
+
+  .c-content__container
+    - unless @model.address.blank? && @model.phone.blank? && @model.website.blank?
+      .h-margin-bottom--2
+        - unless @model.address.blank?
+          address.mdl-typography--subhead.h-margin-bottom--1 = @model.address
+        - unless @model.phone.blank?
+          a.mdl-typography--subhead[
+            href="tel://#{strip_tags(@model.phone).tr(' ()-', '')}"
+            ]
+            span.material-icons> phone
+            = @model.phone
+          wr.h-margin-right--3
+        - unless @model.website.blank?
+          - website = @model.website.sub /(http:|)\/\//, ''
+          a.mdl-typography--subhead[
+            rel='nofollow'
+            href="//#{website}"
+            target='_blank'
+            ]
+            span.material-icons> language
+            = website
+
+    - unless @model.content.blank?
+      .mdl-typography--caption.h-margin-bottom--2 == @model.content
+
+    - unless @model.targets.empty?
+      .mdl-list = render partial: 'customers/target/icon', collection: @model.targets.order(:index),
+                       as: :item, cached: true

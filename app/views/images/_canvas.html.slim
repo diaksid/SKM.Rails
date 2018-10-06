@@ -1,0 +1,20 @@
+- if local_assigns[:lightbox]
+  - original = canvas.upload.image || canvas.upload
+  canvas.h-bg--cover[
+    class=local_assigns[:class_name]
+    width=canvas.upload.thumb.width
+    height=canvas.upload.thumb.height
+    data-lazy=canvas.upload.thumb.url
+    data-lightbox=local_assigns[:lightbox]
+    data-lightbox-href=original.url
+    ]
+  link%thumbnailUrl[href=canvas.upload.thumb.url]
+  link%image[href=original.url]
+- else
+  canvas.h-bg--cover[
+    class=local_assigns[:class_name]
+    width=canvas.upload.thumb.width
+    height=canvas.upload.thumb.height
+    data-lazy=canvas.upload.thumb.url
+    ]
+  link%image[href=canvas.upload.thumb.url]

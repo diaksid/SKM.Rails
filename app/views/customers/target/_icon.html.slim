@@ -1,0 +1,18 @@
+.mdl-list__item
+  a.mdl-list__item-primary-content> href=target_path(item)
+    = render partial: 'attachments/canvas', object: item.attach,
+            layout: 'attachments/thumbnail',
+            locals: {class: ['c-banner__frame'],
+                     width: 96,
+                     links: {thumbnail: true}}
+
+    /.c-img--thumbnail
+      .c-banner
+        canvas.c-banner__frame.h-bg--cover[
+          width=96
+          height=96
+          data-lazy=(item.cover.nil? ? image_url('no-image.png') : item.cover.thumb.url)
+          ]
+
+    = item.name
+  span.material-icons.mdl-color-text--accent = ['star_border', 'star_half', 'star'][item.importance]

@@ -1,0 +1,14 @@
+html do
+    form.inputs do
+        form.input :title
+        form.input :keywords
+        form.input :description
+    end
+
+    form.inputs do
+        form.input :canonical
+        form.input :robots, as: :select, include_blank: true,
+                   collection: WebPage::ROBOTS.to_a,
+                   input_html: {class: 'c-control-select'}
+    end
+end

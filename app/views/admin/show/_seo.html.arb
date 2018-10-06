@@ -1,0 +1,11 @@
+html do
+    attributes_table_for resource do
+        row :title
+        row :keywords
+        row :description
+    end
+    attributes_table_for resource do
+        row :canonical
+        row :robots
+    end
+end

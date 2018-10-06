@@ -1,0 +1,21 @@
+.c-message--flash {
+  display: none;
+}
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+  .h-layout--hide-phone {
+    display: none !important;
+  }
+}
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+  .h-layout--hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: $grid-desktop-breakpoint - 1) {
+  .h-layout--hide-tablet-phone {
+    display: none !important;
+  }
+}

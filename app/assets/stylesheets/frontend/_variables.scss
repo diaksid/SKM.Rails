@@ -1,0 +1,13 @@
+@import "material-design-lite/src/color-definitions";
+
+// $checkbox-image-path: 'mdl';
+// $progress-image-path: 'mdl';
+
+$color-primary: $palette-blue-grey-500;
+$color-primary-dark: $palette-blue-grey-700;
+$color-accent: $palette-pink-A200;
+
+$layout-drawer-narrow: 320px;
+
+$footer-bg-color:          unquote("rgb(#{$palette-blue-grey-800})");
+$footer-button-fill-color: $footer-bg-color;

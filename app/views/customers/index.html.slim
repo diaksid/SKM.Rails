@@ -1,0 +1,8 @@
+- cache @models do
+  .c-content__container
+    = paginate @models, window: 2, theme: 'mdl'
+
+    .c-catalog = render partial: 'customers/item', collection: @models,
+                        cached: true
+
+    = paginate @models, window: 2, theme: 'mdl'

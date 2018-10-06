@@ -1,0 +1,9 @@
+@import "animate.css/source/base";
+@import "animate.css/source/attention_seekers/pulse";
+@import "animate.css/source/fading_entrances/fadeIn";
+@import "animate.css/source/fading_exits/fadeOutDown";
+@import "animate.css/source/zooming_entrances/zoomIn";
+
+.is-js .wow {
+  visibility: hidden;
+}

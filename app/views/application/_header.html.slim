@@ -1,0 +1,79 @@
+header.c-header.mdl-layout__header.mdl-layout__header--waterfall
+  /.mdl-layout__header--waterfall-hide-top
+
+
+  .c-header__top.mdl-layout__header-row
+    h2%name.mdl-layout-title
+      a%url.c-header__name[
+        class=link_status(root_path)
+        href=root_path
+        ] = t 'application.label'
+
+    .mdl-layout-spacer
+
+    nav.mdl-navigation.h-layout--hide-phone
+      a.mdl-navigation__link[
+        class=link_status(permits_path)
+        href=permits_path
+        ] = t 'permits.index.label'
+
+    nav.mdl-navigation.c-header--hide-tablet
+      a.mdl-navigation__link[
+        class=link_status(targets_path)
+        href=targets_path
+        ] = t 'targets.index.label'
+      a.mdl-navigation__link[
+        class=link_status(customers_path)
+        href=customers_path
+        ] = t 'customers.index.label'
+      a.mdl-navigation__link[
+        class=link_status(feedbacks_path)
+        href=feedbacks_path
+        ] = t 'feedbacks.index.label'
+      a.mdl-navigation__link[
+        class=link_status(articles_path)
+        href=articles_path
+        ] = t 'articles.index.label'
+
+    nav.mdl-navigation.h-layout--hide-phone
+      a.mdl-navigation__link[
+        class=link_status(contact_path)
+        href=contact_path
+        ] = t 'contact.show.label'
+
+    button&button#header-network.mdl-button.mdl-js-button.mdl-button--icon.mdl-js-ripple-effect
+      span.material-icons share
+    ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect[for='header-network']
+      li.mdl-menu__item Twitter
+      li.mdl-menu__item Facebook
+
+
+  .c-header__middle.mdl-layout__header-row
+    .mdl-layout-title
+      a.c-header__logo[
+        class=link_status(root_path)
+        href=root_path
+        ]
+        | строительный контроль
+        br
+        | технический надзор
+      address.h-layout--hide-phone г.&nbsp;Москва, улица Малая Дмитровка, дом&nbsp;18А, строение&nbsp;3, помещение&nbsp;VIII
+
+    .mdl-layout-spacer
+
+    a.c-header__phone.h-text--href.h-layout--hide-phone[href="tel://+74953239923"]
+      small>  +7 (495)
+      span 323-99-23
+
+
+  .c-header__bottom.mdl-layout__header-row
+    = render 'yandex.search'
+
+    .mdl-layout-spacer
+
+    a.mdl-button.mdl-js-button.mdl-button--icon.mdl-js-ripple-effect.h-text--href[
+      href='#'
+      data-mailto=Base64.encode64(LOCAL[:email]).squish
+      data-mailto-safe=true
+      ]
+      span.material-icons mail_outline

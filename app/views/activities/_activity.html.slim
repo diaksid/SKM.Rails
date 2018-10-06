@@ -1,0 +1,8 @@
+a.mdl-navigation__link[
+  class=activity_link_status(activity)
+  href=activity_path(activity)
+  ] == "#{'&nbsp;' * 3 * activity.ancestry_depth}#{activity.name}"
+- if activity.has_children?
+  - unless activity.children.navigated.empty?
+    .c-navigation__submenu
+      = render partial: 'activities/activity', collection: activity.children.navigated, as: :activity

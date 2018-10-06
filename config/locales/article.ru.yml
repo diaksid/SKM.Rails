@@ -1,0 +1,29 @@
+---
+ru:
+  articles:
+    index:
+      label: "Блог"
+      title: "Блог"
+      description: "Блог строительной компании «Масштаб»"
+      header: "Блог <small>Строительная Компания «Масштаб»</small>"
+
+  activerecord:
+    models:
+      article:
+        one: "Статья"
+        few: "Статьи"
+        many: "Статей"
+        other: "Статьи"
+    attributes:
+      article:
+        published: "Опубликовано"
+        navigated: "В навигации"
+        published_at: "Дата публикации"
+        upload: "Баннер"
+        upload_crop: "Кадрировать"
+        header: "Заголовок"
+        annotation: "Аннотация"
+        content: "Содержимое"
+        created_at: "Создано"
+        updated_at: "Изменено"
+...

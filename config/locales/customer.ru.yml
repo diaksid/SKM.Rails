@@ -1,0 +1,41 @@
+---
+ru:
+  customers:
+    index:
+      label: "Партнёры"
+      title: "Партнёры"
+      keywords: "партнеры, заказчики"
+      description: "Партнёры строительной компании «Масштаб»"
+      header: "Партнёры <small>Строительная Компания «Масштаб»</small>"
+
+  activerecord:
+    models:
+      customer:
+        one: "Заказчик"
+        few: "Заказчика"
+        many: "Заказчиков"
+        other: "Заказчики"
+    attributes:
+      customer:
+        published: "Опубликовано"
+        navigated: "В навигации"
+        active: "Активно"
+        name: "Название"
+        content: "Описание"
+        phone: "Телефон"
+        address: "Адрес"
+        geo: "Геокоординаты"
+        website: "Сайт"
+        created_at: "Создано"
+        updated_at: "Изменено"
+        index: "IDX"
+        attach: "Логотип"
+        attach_purge: "Удалить"
+        user: "Аккаунт"
+        targets: "Объекты"
+        feedbacks: "Отзывы"
+
+  active_admin:
+    local:
+      contacts: "Контакты"
+...

@@ -1,0 +1,179 @@
+.h-font--small {
+  font-size: 80%;
+}
+
+.h-font--italic {
+  font-style: italic;
+}
+
+.h-text--href {
+  @include text-href();
+}
+
+.h-text--animate {
+  transition: color 0.2s $animation-curve-default;
+  text-transform: lowercase;
+}
+
+.h-bg {
+  &--only {
+    display: inline-block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -9999em;
+    direction: ltr;
+    background-repeat: no-repeat;
+
+    br {
+      display: none;
+    }
+  }
+
+  &--cover {
+    background: center no-repeat transparent;
+    background-size: cover;
+
+    &-top {
+      background-position: center top;
+    }
+
+    &-bottom {
+      background-position: center bottom;
+    }
+  }
+
+  &--no-image {
+    background: center no-repeat unquote("rgb(#{$palette-grey-100})");
+    background-image: image_url('system/image.svg');
+    background-size: contain;
+  }
+
+  &--lazy {
+    background: image_url('system/lazy.svg') repeat unquote("rgb(#{$palette-grey-100})");
+  }
+}
+
+.h-display {
+  &--flex {
+    display: flex !important;
+  }
+
+  &--inline-flex {
+    display: inline-flex !important;
+  }
+
+  &--block {
+    display: block !important;
+  }
+
+  &--inline-block {
+    display: inline-block !important;
+  }
+
+  &--inline {
+    display: inline !important;
+  }
+}
+
+.h-float {
+  &--left {
+    float: left;
+  }
+
+  &--right {
+    float: right;
+  }
+}
+
+.h-clear {
+  clear: both;
+
+  &--left {
+    clear: left;
+  }
+
+  &--right {
+    clear: right;
+  }
+}
+
+.h-width {
+  &--100 {
+    width: 100% !important;
+  }
+
+  &--response {
+    max-width: 100% !important;
+  }
+}
+
+.h-margin-x--auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+@each $prop, $abbr in (margin: margin, padding: padding) {
+  @each $size, $lengths in $spacers {
+    $length-x: map-get($lengths, x);
+    $length-y: map-get($lengths, y);
+
+    .h-#{$abbr}-all--#{$size} {
+      #{$prop}: $length-y $length-x !important;
+    }
+
+    .h-#{$abbr}-top--#{$size} {
+      #{$prop}-top: $length-y !important;
+    }
+
+    .h-#{$abbr}-right--#{$size} {
+      #{$prop}-right: $length-x !important;
+    }
+
+    .h-#{$abbr}-bottom--#{$size} {
+      #{$prop}-bottom: $length-y !important;
+    }
+
+    .h-#{$abbr}-left--#{$size} {
+      #{$prop}-left: $length-x !important;
+    }
+
+    // Axes
+    .h-#{$abbr}-x--#{$size} {
+      #{$prop}-right: $length-x !important;
+      #{$prop}-left: $length-x !important;
+    }
+
+    .h-#{$abbr}-y--#{$size} {
+      #{$prop}-top: $length-y !important;
+      #{$prop}-bottom: $length-y !important;
+    }
+  }
+}
+
+.h-shadowed {
+  @include shadow-2dp();
+}
+
+.h-preload {
+  background: image_url("loading/0.svg") center no-repeat unquote("rgba(#{$palette-grey-200}, 0.25)");
+  background-size: 25%;
+
+  &--sector {
+    background-image: image_url("loader/sector.128.gif");
+    background-size: auto;
+  }
+}
+
+.mdl-js {
+  &.h-onclick {
+    cursor: pointer;
+  }
+
+  .h-shadowed {
+    @include shadow-4dp();
+
+    &:hover {
+      @include shadow-8dp();
+    }
+  }
+}

@@ -1,0 +1,62 @@
+---
+ru:
+  activerecord:
+    models:
+      active_storage/blob:
+        one: "Файл"
+        few: "Файла"
+        many: "Файлов"
+        other: "Файлы"
+      active_storage/attachment:
+        one: "Связь"
+        few: "Связи"
+        many: "Связей"
+        other: "Связи"
+    attributes:
+      active_storage/blob: &blob
+        key: "Ключ"
+        filename: "Имя файла"
+        content_type: "Тип данных"
+        metadata: "Метаданные"
+        byte_size: "Размер"
+        checksum: "Контроль"
+        created_at: "Создано"
+        preview: "Просмотр"
+      active_storage/attachment:
+        record: "Ресурс"
+        record_type: "Тип ресурса"
+        record_id: "ID ресурса"
+        blob: "Файл"
+        name: "Переменная"
+        created_at: "Создано"
+        index: "IDX"
+        kbyte_size: "Размер"
+        <<: *blob
+
+  active_admin:
+    scopes:
+      unattached: "Мусор"
+    batch_actions:
+      labels:
+        purge: "Удалить"
+      alerts:
+        purge: "Модели удалены"
+    action_items:
+      remove_trash: "Убрать мусор (%{count})"
+    collection_actions:
+      removed_trash: "Мусор убран [%{count}]"
+    panels:
+      images: "Изображения (%{count})"
+      blobs: "Ресурсы (%{count})"
+    local:
+      storage: "Хранилище"
+      storage_attachments: "Хранилище: Связи"
+      storage_blobs: "Хранилище: Файлы"
+      up: "Наверх"
+      down: "Вниз"
+
+  errors:
+    messages:
+      file_too_big: "Файл слишком большой"
+      wrong_content_type: "Неверный тип данных файла"
+...

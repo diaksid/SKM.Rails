@@ -1,0 +1,41 @@
+- if YANDEX[:search]
+  form.mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.mdl-textfield--align-right[
+    action='https://yandex.ru/search/site/'
+    method='get'
+    target='_blank'
+    accept-charset='utf-8'
+    ]
+
+    input&hidden[
+      name='searchid'
+      value=YANDEX[:search]
+      ]
+
+    input&hidden[
+      name='l10n'
+      value='ru'
+      ]
+
+    input&hidden[
+      name='reqenc'
+      value=''
+      ]
+
+    .mdl-textfield__expandable-holder
+      input&search#yandex-search-input.mdl-textfield__input[
+        name='text'
+        list='yandex-search-datalist'
+        placeholder='поиск по сайту'
+        pattern='.{5,}'
+        title='не менее 5 символов'
+        required=true
+        value=''
+        ]
+    label.mdl-button.mdl-js-button.mdl-button--icon.h-text--href[for='yandex-search-input']
+      i.material-icons search
+
+    datalist#yandex-search-datalist
+      option value='обследование'
+      option value='технический надзор'
+      option value='лабораторный контроль'
+      option value='судебная экспертиза'

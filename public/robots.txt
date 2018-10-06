@@ -1,0 +1,9 @@
+# http://www.robotstxt.org/robotstxt.html
+
+Sitemap: https://xn--j1aen.xn--80adxhks/sitemap.xml
+
+User-agent: *
+Disallow: /admin
+Disallow: /users
+
+Host: xn--j1aen.xn--80adxhks

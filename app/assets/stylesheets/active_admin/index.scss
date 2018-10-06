@@ -1,0 +1,34 @@
+$sidebar-width: 320px;
+//
+@import "active_admin/mixins";
+@import "active_admin/base";
+//
+@import "mdl/variables";
+@import "mdl/mixins";
+@import "mdl/forms";
+@import "mdl/helpers";
+@import "mdl/images";
+//
+@import "helpers";
+@import "content";
+@import "admin";
+@import "attachment";
+@import "trumbowyg";
+
+html {
+  overflow-y: scroll;
+}
+
+.status_tag {
+  background: #6090db;
+}
+
+#utils {
+  padding-left: 1rem;
+  line-height: 100%;
+
+  > a {
+    font-size: 125%;
+    line-height: inherit;
+  }
+}

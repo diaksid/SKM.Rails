@@ -1,0 +1,36 @@
+- cache request.path do
+  .mdl-layout__drawer
+    - if request.path == root_path
+      .mdl-layout-title.h-bg--only = t 'application.title'
+    - else
+      a.mdl-layout-title.h-bg--only href=root_path = t 'application.title'
+
+    nav.mdl-navigation.c-navigation--stacked
+      = render 'activities/activities'
+
+      .c-navigation__separator
+
+      a.mdl-navigation__link(
+        class=link_status(permits_path)
+        href=permits_path
+        ) = t 'permits.index.label'
+      a.mdl-navigation__link(
+        class=link_status(targets_path)
+        href=targets_path
+        ) = t 'targets.index.label'
+      a.mdl-navigation__link(
+        class=link_status(customers_path)
+        href=customers_path
+        ) = t 'customers.index.label'
+      a.mdl-navigation__link(
+        class=link_status(feedbacks_path)
+        href=feedbacks_path
+        ) = t 'feedbacks.index.label'
+      a.mdl-navigation__link(
+        class=link_status(articles_path)
+        href=articles_path
+        ) = t 'articles.index.label'
+      a.mdl-navigation__link(
+        class=link_status(contact_path)
+        href=contact_path
+      ) = t 'contact.show.label'

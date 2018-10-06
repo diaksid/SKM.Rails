@@ -1,0 +1,31 @@
+#contact {
+  .c-content__ymap {
+    margin: .5vh 10% 0 0;
+    width: 50%;
+    min-height: 320px;
+  }
+
+  .h-js--autosize {
+    resize: none;
+  }
+
+  @media (max-width: $layout-screen-size-threshold - 1) {
+    .c-content__ymap {
+      margin: 0 10% 7vh 0;
+      width: 90%;
+    }
+
+    .c-content__form {
+      width: 90%;
+
+    }
+
+    .mdl-textfield {
+      width: 100%;
+    }
+
+    .h-js--autosize {
+      resize: vertical;
+    }
+  }
+}

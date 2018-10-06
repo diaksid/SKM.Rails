@@ -1,0 +1,22 @@
+panel 'Партнёры' do
+  table do
+    tr do
+      th class: 'h-size--40' do
+        'Опубликовано'
+      end
+      th class: 'text-success' do
+        Partner.published.count
+      end
+    end
+    tr do
+      th 'В навигации'
+      th class: 'text-success' do
+        Partner.navigated.count
+      end
+    end
+    tr do
+      th 'Активно'
+      th Partner.active.count
+    end
+  end
+end

@@ -1,0 +1,19 @@
+- cache @model do
+  scss:
+    .c-content__images {
+      padding: 3rem 0 5rem;
+    }
+
+
+  .c-content__container
+    == @model.content.squish
+
+    - unless @model.images.empty?
+      .c-content__images.mdl-grid
+        = render partial: 'images/canvas', collection: @model.images, cached: true,
+                 layout: 'images/banner',
+                 locals: {class_name: 'c-img--response',
+                          lightbox: 'content'}
+
+  - if @model.images.empty?
+    = render 'objects'

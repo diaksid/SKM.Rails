@@ -1,0 +1,62 @@
+- params = request.params[:contact] || {}
+form.c-content__form.mdl-cell[
+  method='post'
+  action=contact_path
+]
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input&text#contact-name.mdl-textfield__input[
+      name='contact[name]'
+      title=t('contact_form.name.valid')
+      pattern='.{3,128}'
+      required
+      value=params[:name]
+    ]
+    label.mdl-textfield__label[for="contact-name"] = t 'contact_form.name.label'
+
+  br
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input&email#contact-email.mdl-textfield__input[
+      name='contact[email]'
+      title=t('contact_form.email.valid')
+      required
+      value=params[:email]
+    ]
+    label.mdl-textfield__label[for="contact-email"] = t 'contact_form.email.label'
+
+  br
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input&tel#contact-phone.mdl-textfield__input[
+      name='contact[phone]'
+      title=t('contact_form.phone.valid')
+      pattern='[0-9\+\-\(\)\s]{7,}'
+      value=params[:phone]
+    ]
+    label.mdl-textfield__label[for="contact-phone"] = t 'contact_form.phone.label'
+
+  br
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input&text#contact-subject.mdl-textfield__input[
+      name='contact[subject]'
+      value=params[:subject]
+    ]
+    label.mdl-textfield__label[for="contact-subject"] = t 'contact_form.subject.label'
+
+  br
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    textarea#contact-content.mdl-textfield__input.h-js--autosize[
+      name='contact[content]'
+      rows=8
+      required
+    ] == params[:content]
+    label.mdl-textfield__label[for="contact-content"] = t 'contact_form.content.label'
+
+  br
+
+  button&submit.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+    span.material-icons mail_outline

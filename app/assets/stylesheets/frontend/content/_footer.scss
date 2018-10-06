@@ -1,0 +1,13 @@
+.mdl-mini-footer {
+  .mdl-logo {
+    float: left;
+    margin-right: 2rem;
+    color: unquote("rgb(#{$color-white})");
+  }
+
+  .mdl-mini-footer__right-section {
+    .mdl-button {
+      margin-left: .75rem;
+    }
+  }
+}

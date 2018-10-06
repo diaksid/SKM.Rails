@@ -1,0 +1,18 @@
+-
+  email: "admin@test.test"
+  password: "+1234567"
+  password_confirmation: "+1234567"
+  is_admin: true
+  name: "Администратор"
+-
+  email: "manager@test.test"
+  password: "+1234567"
+  password_confirmation: "+1234567"
+  in_staff: true
+  name: "Менеджер"
+-
+  email: "client@test.test"
+  password: "+1234567"
+  password_confirmation: "+1234567"
+  name: "Клиент"
+...

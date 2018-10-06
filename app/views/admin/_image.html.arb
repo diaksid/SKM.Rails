@@ -1,0 +1,28 @@
+href ||= false
+size ||= 96
+fit ||= false
+
+if (attached = !image.nil?)
+    attached = image.attached? if image.methods.include? :attached?
+end
+if attached
+    url = url_for(fit ? image.variant(resize_to_fit size) : image.variant(resize_to_fill size))
+else
+    url = url_for('system/image.svg')
+end
+
+attrs = {class: 'img-thumbnail h-d--block h-m_x--auto',
+         width: size,
+         height: size}
+
+if href
+    html do
+        link_to href do
+            image_tag url, **attrs
+        end
+    end
+else
+    html do
+        image_tag url, **attrs
+    end
+end

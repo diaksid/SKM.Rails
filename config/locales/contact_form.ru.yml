@@ -1,0 +1,17 @@
+ru:
+  contact_form:
+    name:
+      label: "Контактное лицо"
+      valid: "от 3 до 128 символов"
+    email:
+      label: "Электронный адрес"
+      valid: "корректный email"
+    phone:
+      label: "Телефон"
+      valid: "не менее 7 цифр"
+    subject:
+      label: "Тема"
+    content:
+      label: "Сообщение"
+
+    required: "обязательные поля"

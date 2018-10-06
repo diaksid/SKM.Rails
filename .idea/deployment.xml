@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="IHOR CCK vps" createEmptyFolders="true" exclude=".svn;.cvs;.idea;.DS_Store;.git*;.hg;.keep;*.md;*.sqlite3;node_modules">
+    <serverData>
+      <paths name="IHOR CCK dev">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="IHOR CCK master">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="IHOR CCK vps">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/skm" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/skm/Gemfile.lock" />
+            <excludedPath path="/skm/.rubocop.yml" />
+            <excludedPath path="/skm/db/schema.rb" />
+            <excludedPath path="/skm/public/sitemap.xml" />
+            <excludedPath path="/skm/yarn.lock" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="IHOR PRO dev">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="IHOR PRO master">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

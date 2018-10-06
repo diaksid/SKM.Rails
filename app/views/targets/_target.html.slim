@@ -1,0 +1,23 @@
+- path = target_path target
+%dataset.c-catalog__row(
+  itemscope=true
+  itemtype='http://schema.org/Dataset'
+  )
+  .c-catalog__image.h-layout--hide-tablet-phone
+    a%mainEntityOfPage.c-img--thumbnail href=path
+      .c-banner.h-preload
+        = render partial: 'attachments/canvas', object: target.attach,
+                 locals: {class: ['c-banner__frame', 'h-lazyload'],
+                          links: {thumbnail: true}}
+        /canvas.c-banner__frame.h-bg--cover(
+          width=192
+          height=192
+          data-lazy=(target.cover.nil? ? image_url('no-image.png') : target.cover.thumb.url)
+          )
+    /- unless target.cover.nil?
+      link%thumbnailUrl href=target.cover.thumb.url
+      link%image href=target.cover.url
+
+  .c-catalog__text
+    h3%name.mdl-typography--headline: a%url href=path = target.name
+    .mdl-typography--subhead = target.areas_show '<br>'

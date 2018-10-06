@@ -1,0 +1,82 @@
+ruby:
+  @schema ||= {}
+  if @schema[:main]
+    @schema[:main] = {itemprop: 'mainEntity',
+                      itemscope: true,
+                      itemtype: "http://schema.org/#{@schema[:main]}"}
+  else
+    @schema[:main] = {itemprop: 'mainContentOfPage'}
+  end
+  @label ||= t 'application.label'
+  @robots ||= 'index,follow'
+
+
+doctype html
+
+
+html[
+  lang='ru'
+  itemscope=true
+  itemtype="http://schema.org/#{@schema[:page] || 'WebPage'}"
+  ]
+
+
+  head
+    meta charset='utf-8'
+    meta(
+      name='viewport'
+      content= 'width=device-width, initial-scale=1'
+      )
+    meta(
+      http-equiv='X-UA-Compatible'
+      content='IE=edge'
+      )
+
+    title
+      = @title.blank? ? t('application.title') : @title
+      = @label.empty? ? '' : " · #{@label}"
+    - unless @description.blank?
+      meta(
+        name='description'
+        content=@description
+        )
+    - unless @robots.blank?
+      meta(
+        name='robots'
+        content=@robots
+        )
+    - unless @keywords.blank?
+      meta(
+        name='keywords'
+        content=@keywords
+        )
+    - unless @canonical.blank?
+      link(
+        rel='canonical'
+        href=@canonical
+        )
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    /= action_cable_meta_tag
+
+    = render 'head'
+
+
+  body
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      = render 'header'
+
+      .mdl-layout__content
+        .mdl-grid.mdl-grid--no-spacing
+          main.mdl-cell *@schema[:main]
+            .c-content__container: h1%name == @header
+            = yield
+          aside.mdl-cell.mdl-shadow--2dp.h-layout--hide-tablet-phone
+            nav.mdl-navigation.c-navigation--stacked
+              = render 'activities/activities'
+
+        = render 'footer'
+
+      = render 'drawer'
+      = render 'messages'

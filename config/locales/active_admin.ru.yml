@@ -1,0 +1,82 @@
+---
+ru:
+  activerecord:
+    models:
+      comment:
+        one: "Комментарий"
+        few: "Комментария"
+        many: "Комментариев"
+        other: "Комментарии"
+    attributes:
+      active_admin/comment:
+        namespace: "Область имён"
+        resource: "Ресурс"
+        resource_type: "Тип ресурса"
+        resource_id: "ID ресурса"
+        author: "Автор"
+        author_type: "Тип автора"
+        author_id: "ID автора"
+        body: "Текст"
+        created_at: "Создано"
+        updated_at: "Изменено"
+
+  formtastic:
+    :yes: 'Да'
+    :no: 'Нет'
+    :create: 'Создать %{model}'
+    :update: 'Изменить %{model}'
+    :submit: 'Выполнить %{model}'
+    :cancel: 'Отменить %{model}'
+    :reset: 'Сбросить %{model}'
+    :required: 'требуется'
+
+  active_admin:
+    default_confirmation: "Вы уверены, что вы хотите это сделать?"
+    move: "Переместить"
+    scopes:
+      all: "Все"
+      unscoped: "Стандарт"
+      active: "Активно"
+      inactive: "Неактивно"
+      published: "Опубликовано"
+      unpublished: "Не опубликовано"
+      navigated: "В навигации"
+      unnavigated: "Вне навигации"
+    filters:
+      predicates:
+        eq: "равно"
+        from: "от"
+        to: "до"
+    batch_actions:
+      labels:
+        active: "Активировать"
+        deactive: "Деактивировать"
+        published: "Опубликовать"
+        unpublished: "Снять с публикации"
+        navigated: "В навигацию"
+        denavigated: "Убрать из навигации"
+      alerts:
+        active: "Модели активированы."
+        deactive: "Модели деактивированы."
+        published: "Модели опубликованы."
+        unpublished: "Модели сняты с публикации."
+        navigated: "Модели помещены в навигацию."
+        denavigated: "Модели изъяты из навигации."
+    pagination:
+      per_page: ""
+    action_items:
+      indexing: "Индексация"
+    collection_actions:
+      indexing: "Переиндексировано"
+    index_list:
+      table_alter: "Детали"
+      sortable: "Структура"
+    panels:
+      data: "Данные"
+      seo: "SEO"
+    sidebars:
+      state: "Состояние"
+      relations: "Связи"
+    local:
+      utils: "Утилиты"
+...

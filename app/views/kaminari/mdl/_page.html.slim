@@ -1,0 +1,15 @@
+/ Link showing page number
+  - available local variables
+    page         : a page object for "this" page
+    url          : url to this page
+    current_page : a page object for the currently displayed page
+    total_pages  : total number of pages
+    per_page     : number of items to fetch per page
+    remote       : data-remote
+- if page.current?
+  .mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-button--colored = page
+  /.mdl-button.mdl-js-button.mdl-button--icon = page
+- else
+  = link_to page, url, remote: remote,
+    class: 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab'
+    /class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored'

@@ -1,0 +1,15 @@
+- path = permit_path permit
+%dataset.c-catalog__row(
+  itemscope=true
+  itemtype='http://schema.org/Dataset'
+  )
+  .c-catalog__image.h-layout--hide-tablet-phone
+    a%mainEntityOfPage.c-img--thumbnail href=path
+      .c-banner.h-preload
+        = render partial: 'attachments/canvas', object: permit.attach,
+                 locals: {class: ['c-banner__frame', 'h-lazyload'],
+                          fit: true,
+                          links: {thumbnail: true}}
+
+  .c-catalog__text
+    h3%name.mdl-typography--headline: a%url href=path = permit.name

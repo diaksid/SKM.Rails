@@ -1,0 +1,9 @@
+.mdl-layout__drawer {
+  padding-bottom: 16px;
+
+  .mdl-layout-title {
+    height: ($layout-drawer-width * .75);
+    background: image_url('rails/ruby.svg') center no-repeat unquote("rgb(#{$palette-blue-grey-900})");
+    background-size: auto 50%;
+  }
+}

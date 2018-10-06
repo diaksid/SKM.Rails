@@ -1,0 +1,69 @@
+.c-control {
+  position: relative;
+  display: inline;
+  padding-left: $control-gutter;
+  cursor: pointer;
+
+  + .c-control {
+    margin-left: $control-spacer-x;
+  }
+}
+
+.c-control-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.c-controls--stacked {
+  .c-control {
+    display: inline;
+
+    &::after {
+      display: block;
+      margin-bottom: $control-spacer-y;
+      content: "";
+    }
+
+    + .c-control {
+      margin-left: 0;
+    }
+  }
+}
+
+.c-control-select {
+  display: inline-block;
+  max-width: 100%;
+  padding: $control-select-padding-y ($control-select-padding-x + $control-select-indicator-padding) $control-select-padding-y $control-select-padding-x;
+  padding-right: $control-select-padding-x \9;
+  color: $control-select-color;
+  vertical-align: middle;
+  background: $control-select-bg $control-select-indicator no-repeat right $control-select-padding-x center;
+  background-image: none \9;
+  background-size: $control-select-bg-size;
+  border: $control-select-border-width solid $control-select-border-color;
+  border-radius: $control-select-border-radius;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &:focus {
+    border-color: $control-select-focus-border-color;
+    outline: none;
+    box-shadow: $control-select-focus-box-shadow;
+
+    &::-ms-value {
+      color: $input-color;
+      background-color: $input-bg;
+    }
+  }
+
+  &:disabled {
+    color: $control-select-disabled-color;
+    cursor: $cursor-disabled;
+    background-color: $control-select-disabled-bg;
+  }
+
+  &::-ms-expand {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,21 @@
+- cache @models do
+  ruby:
+    size = {}
+    if @model.attach.attached?
+      size = {width: 290, height: 205} if @model.attach.metadata[:width] > @model.attach.metadata[:height]
+      size = {width: 290, height: 410} if @model.attach.metadata[:width] < @model.attach.metadata[:height]
+    end
+    locals = {class: ['c-img--response',
+                      'h-width--100'],
+              fit: true,
+              lightbox: '%s-lightbox' % action_name,
+              links: true,
+              wrapper: {class: ['mdl-cell',
+                                'mdl-cell--3-col-desktop']}}
+
+  .c-content__container
+    - unless @model.attaches.empty?
+      .c-content__images.mdl-grid
+        = render partial: 'attachments/canvas', collection: @model.attaches.order(:index),
+                layout: 'attachments/thumbnail',
+                locals: locals.merge!(size)

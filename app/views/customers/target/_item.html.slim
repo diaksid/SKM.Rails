@@ -1,0 +1,5 @@
+.mdl-list__item
+  a.mdl-list__item-primary-content>[href=target_path(item)]
+    span.material-icons.mdl-list__item-avatar> business
+    = item.name
+  span.material-icons.mdl-color-text--accent = ['star_border', 'star_half', 'star'][item.importance]

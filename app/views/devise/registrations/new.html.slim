@@ -1,0 +1,38 @@
+ruby:
+  @header = t '.sign_up', default: 'Sign up'
+
+
+.row
+  .col-xs-12.col-md-10.col-lg-8.col-xl-6
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = devise_error_messages!
+
+      fieldset.form-group
+        = f.label :email, class: 'sr-only'
+        = f.email_field :email, \
+          class: 'form-control', autofocus: true, \
+          placeholder: t('activerecord.attributes.user.email', default: "Email")
+        small.text-muted &nbsp;
+
+      fieldset.form-group
+        = f.label :password, class: 'sr-only'
+        = f.password_field :password, \
+          class: 'form-control', autocomplete: "off", \
+          placeholder: t('activerecord.attributes.user.password', default: "Password")
+        - if @minimum_password_length
+          small.text-muted
+            => @minimum_password_length
+            = t '.characters_minimum', default: "characters minimum"
+
+      fieldset.form-group
+        = f.label :password_confirmation, class: 'sr-only'
+        = f.password_field :password_confirmation, \
+          class: 'form-control', autocomplete: "off", \
+          placeholder: t('activerecord.attributes.user.password_confirmation', default: "Password confirmation")
+        small.text-muted &nbsp;
+
+      .actions.m-b-2
+        = f.button class: 'btn btn-primary' do
+          span.icon.icon-user-plus.font-size-lg aria-hidden='true'
+
+    = render "devise/shared/links"

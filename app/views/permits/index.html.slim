@@ -1,0 +1,5 @@
+- cache @models do
+  .c-content__container
+    = paginate @models, window: 5, theme: 'mdl'
+    .c-catalog = render @models
+    = paginate @models, window: 5, theme: 'mdl'

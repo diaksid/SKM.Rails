@@ -1,0 +1,15 @@
+doctype html
+
+html
+
+  head
+    meta charset='utf-8'
+
+  body
+    = yield
+    p[style='margin-top: 3em;color: #818a91;font-size: 70%']
+      span[style='padding: .5em .5em 0;border-top: 1px solid #eceeef']
+        => t 'application.title'
+        ' [
+        a>[href='http://skm.moscow' target='_blank' style='text-transform: uppercase'] skm.moscow
+        | ]

@@ -1,0 +1,15 @@
+//Links
+
+a {
+  text-decoration: $link-decoration;
+
+  &:hover,
+  &:focus {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &.is-active,
+  .is-active > & {
+    cursor: default;
+  }
+}

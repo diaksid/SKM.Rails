@@ -1,0 +1,28 @@
+ruby:
+  geo = '%f %f' % [LOCAL[:geo][:latitude], LOCAL[:geo][:longitude]]
+  attrs = {data: {name: t('application.name'),
+                  info: 'Центральный офис',
+                  center: geo,
+                  placemark: geo,
+                  zoom: 14},
+           aria: {hidden: 'true'}}
+
+
+#contact.c-content__container
+  .mdl-grid.mdl-grid--no-spacing
+    .c-content__ymap.mdl-cell.mdl-card.mdl-shadow--4dp.h-preload *attrs
+
+    = render 'form'
+
+
+.c-content__mosaic.mdl-grid.mdl-grid--no-spacing
+  - for i in 1..3
+    - path = "/media/contact/#{i}.jpg"
+    .c-banner.mdl-cell
+      canvas.c-banner__frame.h-bg--cover.c-img--response[
+        width=560
+        height=315
+        data-lazy=path
+        data-lightbox="contact"
+        data-lightbox-href=path
+        ]

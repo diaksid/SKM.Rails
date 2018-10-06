@@ -1,0 +1,13 @@
+- cache do
+  .c-content__mosaic.mdl-grid.mdl-grid--no-spacing.h-margin-top--3.h-js--aligns
+    - for path in (1..(numb ||= 12)).map { |i| "/media/portfolio/#{i}.jpg" }
+      .c-banner.mdl-cell.mdl-cell--3-col-desktop.h-preload
+        canvas.c-banner__frame.h-lazyload.h-lazyload--fluid[
+          width=416
+          height=234
+          data-lazy=path
+          data-light='objects'
+          data-light-href=path
+          ]
+        link%image[href=path]
+        .c-banner__title.h-js--align image

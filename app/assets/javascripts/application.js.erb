@@ -1,0 +1,19 @@
+//= require_self
+//
+//= require rails-ujs
+//  require activestorage
+//= require turbolinks
+//
+//= require vendor
+//= require common
+//= require frontend
+
+// @babel/polyfill/dist/polyfill.min.js
+(function (document) {
+  if ((/msie|rv:11/i).test(navigator.userAgent)) {
+    var el = document.createElement('script')
+    el.src = '<%= asset_path('polyfill.js') %>'
+    el['data-turbolinks-track'] = 'reload'
+    document.head.appendChild(el)
+  }
+}).call(this, document)

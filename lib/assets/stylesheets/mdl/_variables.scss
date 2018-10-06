@@ -1,0 +1,92 @@
+@import "material-design-lite/src/variables";
+
+$spacer: 16px !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$spacers: (
+  0: (
+    x: 0,
+    y: 0
+  ),
+  1: (
+    x: $spacer-x,
+    y: $spacer-y
+  ),
+  2: (
+    x: ($spacer-x * 2),
+    y: ($spacer-y * 2)
+  ),
+  3: (
+    x: ($spacer-x * 3),
+    y: ($spacer-y * 3)
+  )
+) !default;
+
+$border-width: 1px !default;
+$border-radius: 4px !default;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-size-root: 14px !default;
+$font-size-base: 1rem !default;
+
+$cursor-disabled: not-allowed !default;
+
+$link-color: #428bca !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: none !default;
+
+$thumbnail-padding: ($spacer / 4) !default;
+$thumbnail-bg: unquote("rgb(#{$color-white})") !default;
+$thumbnail-border-width: $border-width !default;
+$thumbnail-border-color: unquote("rgb(#{$palette-grey-300})") !default;
+$thumbnail-border-radius: $border-radius !default;
+
+$figure-caption-color: unquote("rgb(#{$palette-grey-500})") !default;
+$figure-caption-font-size: 90% !default;
+
+$table-cell-padding: 0.75rem !default;
+$table-bg: transparent !default;
+$table-bg-accent: rgba(0, 0, 0, 0.05) !default;
+$table-bg-hover: rgba(0, 0, 0, 0.075) !default;
+$table-bg-active: $table-bg-hover !default;
+$table-border-width: $border-width !default;
+$table-border-color: unquote("rgb(#{$palette-grey-700})") !default;
+
+$input-color: unquote("rgb(#{$palette-grey-700})") !default;
+$input-bg: #fff !default;
+$input-border-width: $border-width !default;
+$input-border-radius: $border-radius !default;
+$input-border-color: rgba(0, 0, 0, 0.15) !default;
+
+$control-gutter: 1.5rem !default;
+$control-spacer-x: $spacer-x !default;
+$control-spacer-y: ($spacer-y / 4) !default;
+
+$control-indicator-size: 1rem !default;
+$control-indicator-bg: #ddd !default;
+$control-indicator-bg-size: 50% 50% !default;
+$control-indicator-box-shadow: inset 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1) !default;
+
+$control-disabled-cursor: $cursor-disabled !default;
+
+$control-select-padding-x: 0.75rem !default;
+$control-select-padding-y: 0.375rem !default;
+$control-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
+$control-select-color: $input-color !default;
+$control-select-disabled-color: unquote("rgb(#{$palette-grey-800})") !default;
+$control-select-bg: #fff !default;
+$control-select-disabled-bg: unquote("rgb(#{$palette-grey-800})") !default;
+$control-select-bg-size: 8px 10px !default; // In pixels because image dimensions
+$control-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") !default;
+$control-select-border-width: $input-border-width !default;
+$control-select-border-color: $input-border-color !default;
+$control-select-border-radius: $border-radius !default;
+
+$control-select-focus-border-color: #51a7e8 !default;
+$control-select-focus-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5) !default;
+
+$control-select-sm-padding-y: 0.2rem !default;
+$control-select-sm-font-size: 75% !default;

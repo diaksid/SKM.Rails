@@ -1,0 +1,22 @@
+panel 'Допуски' do
+  table do
+    tr do
+      th class: 'h-size--40' do
+        'Опубликовано'
+      end
+      th class: 'text-success' do
+        Permit.published.count
+      end
+    end
+    tr do
+      th 'В навигации'
+      th class: 'text-success' do
+        Permit.navigated.count
+      end
+    end
+    tr do
+      th 'Активно'
+      th Permit.active.count
+    end
+  end
+end

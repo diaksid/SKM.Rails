@@ -1,0 +1,21 @@
+ruby:
+  @header = t '.forgot_your_password', default: 'Forgot your password?'
+
+
+.row
+  .col-xs-12.col-md-10.col-lg-8.col-xl-6
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+
+      fieldset.form-group
+        = f.label :email, class: 'sr-only'
+        = f.email_field :email, \
+          class: 'form-control', autofocus: true, \
+          placeholder: t('activerecord.attributes.user.email', default: "Email")
+        small.text-muted &nbsp;
+
+      .actions.m-b-2
+        = f.button class: 'btn btn-primary' do
+          span.icon.icon-send-o.font-size-lg aria-hidden='true'
+
+    = render "devise/shared/links"

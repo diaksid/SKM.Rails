@@ -1,0 +1,69 @@
+.c-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $spacer;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: $table-cell-padding;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  .table {
+    background-color: transparent;
+  }
+}
+.c-table--noborder {
+  th,
+  td {
+    border: none;
+  }
+}
+
+.c-table--bordered {
+  border: $table-border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: (2 * $table-border-width);
+    }
+  }
+}
+
+.c-table--narrow {
+  th,
+  td {
+    padding: ($table-cell-padding / 2);
+  }
+}
+
+.c-table--striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+.c-table--hover {
+  tbody tr {
+    &:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+}

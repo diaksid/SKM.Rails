@@ -1,0 +1,46 @@
+h1 {
+  margin: 4vh 0;
+
+  small {
+    display: block;
+    color: unquote("rgb(#{$palette-blue-grey-500})");
+    font-size: 40%;
+    line-height: 1.1;
+  }
+
+
+  @media (max-width: $grid-tablet-breakpoint - 1) {
+    font-size: 40%;
+  }
+}
+
+.c-duplet {
+  small,
+  .small {
+    display: block;
+    font-size: 50%;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 35px;
+    line-height: 38px;
+  }
+}

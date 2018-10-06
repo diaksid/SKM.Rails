@@ -1,0 +1,17 @@
+.h-autosize {
+  max-height: 10rem;
+  resize: none;
+
+  &--min {
+    max-height: 3rem;
+  }
+
+  &--max {
+    max-height: 20rem;
+  }
+
+  &--full {
+    max-height: none;
+  }
+}
+
