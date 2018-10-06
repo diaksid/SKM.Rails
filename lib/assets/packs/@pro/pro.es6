@@ -1,69 +1,11 @@
 (function (window, document) {
   class Pro {
-    constructor (selector, context) {
-      this._target = Pro.find(context)
-      this.find(selector)
+    static to (data) {
+      return data instanceof Pro ? data : new Pro(data)
     }
 
-    find (selector) {
-      this.selector = selector
-      this.context = this._target
-      this._target = Pro.find(this.selector, this.context)
-      return this
-    }
-
-    each (callback, args = null) {
-      for (let i = 0; i < this._target.length; i++) {
-        if (args === null) {
-          if (callback.call(this._target[i], this._target[i], i) === false) {
-            break
-          }
-        } else {
-          if (callback.apply(this._target[i], args) === false) {
-            break
-          }
-        }
-      }
-      return this
-    }
-
-    get length () {
-      return this._target.length
-    }
-
-    get first () {
-      return this._target[0]
-    }
-
-    get isConnected () {
-      return this._target.every(el => el.isConnected)
-    }
-
-    static find (selector, context) {
-      if (context instanceof Node || context instanceof Window) {
-        context = [context]
-      } else if (context instanceof Pro) {
-        context = context.target
-      } else if (typeof context === 'string') {
-        context = this.find(context)
-      }
-      context = context || [document]
-      if (selector instanceof Node || selector instanceof Window) {
-        return [selector]
-      } else if (selector instanceof Pro) {
-        return selector.target
-      } else if (typeof selector === 'string') {
-        let arr = []
-        for (let ctx of context) {
-          let list = [].slice.call(ctx.querySelectorAll(selector))
-          for (let el of list) {
-            if (arr.indexOf(el) === -1) {
-              arr.push(el)
-            }
-          }
-        }
-        return arr
-      }
+    static tag (tag) {
+      return typeof tag === 'string' && new Pro(document.createElement(tag))
     }
 
     static assign (obj, ...args) {
@@ -91,14 +33,6 @@
         }
       }
       return obj
-    }
-
-    static to (data) {
-      return data instanceof Pro ? data : new Pro(data)
-    }
-
-    static tag (tag) {
-      return typeof tag === 'string' && new Pro(document.createElement(tag))
     }
 
     static isObject (obj) {
@@ -132,6 +66,71 @@
 
     static set debug (value) {
       this._debug = !!value
+    }
+
+    static _find (selector, context) {
+      if (context instanceof Node || context instanceof Window) {
+        context = [context]
+      } else if (context instanceof Pro) {
+        context = context.target
+      } else if (typeof context === 'string') {
+        context = this.find(context)
+      }
+      context = context || [document]
+      if (selector instanceof Node || selector instanceof Window) {
+        return [selector]
+      } else if (selector instanceof Pro) {
+        return selector.target
+      } else if (typeof selector === 'string') {
+        let arr = []
+        for (let ctx of context) {
+          let list = [].slice.call(ctx.querySelectorAll(selector))
+          for (let el of list) {
+            if (arr.indexOf(el) === -1) {
+              arr.push(el)
+            }
+          }
+        }
+        return arr
+      }
+    }
+    constructor (selector, context) {
+      this._target = Pro._find(context)
+      this.find(selector)
+    }
+
+    find (selector) {
+      this.selector = selector
+      this.context = this._target
+      this._target = Pro._find(this.selector, this.context)
+      return this
+    }
+
+    each (callback, args = null) {
+      for (let i = 0; i < this._target.length; i++) {
+        if (args === null) {
+          if (callback.call(this._target[i], this._target[i], i) === false) {
+            break
+          }
+        } else {
+          if (callback.apply(this._target[i], args) === false) {
+            break
+          }
+        }
+      }
+      return this
+    }
+
+    get length () {
+      return this._target.length
+    }
+
+    get first () {
+      return this._target[0]
+    }
+
+    get isConnected () {
+      return this._target.every(el => el.isConnected)
     }
   }
 
