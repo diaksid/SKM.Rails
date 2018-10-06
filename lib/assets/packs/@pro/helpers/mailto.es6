@@ -1,8 +1,6 @@
 (function (PRO) {
-  const Pro = PRO()
-
   const PROmailto = function (selector = '[data-mailto]') {
-    return Pro.to(selector).each(element => {
+    return PRO.to(selector).each(element => {
       const mail = element.dataset && atob(element.dataset.mailto)
       if (mail) {
         element.href = `mailto://${mail}`
@@ -15,12 +13,12 @@
     })
   }
 
-  Pro.mailto = function () {
+  PRO.mailto = function () {
     PROmailto(...arguments)
     return this
   }
 
-  Pro.prototype.mailto = function () {
+  PRO.prototype.mailto = function () {
     PROmailto (this)
     return this
   }

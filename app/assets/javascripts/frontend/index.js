@@ -4,14 +4,13 @@
 
 
 (function (window, document, PRO) {
-  var Pro = PRO()
   var turbo = !!window.Turbolinks
 
   if (turbo && navigator.userAgent.match(/Firefox\/(\d+)\./)) {
     window.Turbolinks.supported = false
   }
 
-  Pro
+  PRO
     .onReady(PRO.fn.onready)
     .onLoad(PRO.fn.onload)
 

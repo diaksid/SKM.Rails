@@ -1,7 +1,5 @@
 (function (PRO) {
-  const Pro = PRO()
-
-  Pro.assign({
+  PRO.assign({
     deactive () {
       return this.onclick((event) => {
         event.preventDefault()

@@ -1,6 +1,5 @@
 (function (window, document, PRO) {
-  const Pro = PRO()
-  const PROdata = Pro.data
+  const PROdata = PRO.data
 
   const PROlightBox = (function () {
     const NAME = 'lightbox'
@@ -45,27 +44,27 @@
         if (!this._overlay) {
           this._events = {}
           for (let event in Events) {
-            this._events[event] = Pro.newEvent(Events[event])
+            this._events[event] = PRO.newEvent(Events[event])
           }
-          this._overlay = Pro.tag('div')
+          this._overlay = PRO.tag('div')
             .addClass(`${this._dataKey}-overlay`)
             .hide()
-          this._content = Pro.tag('div')
+          this._content = PRO.tag('div')
             .addClass(`${this._dataKey}-content`)
             .onclick(event => event.stopPropagation())
-          this._modal = Pro.tag('div')
+          this._modal = PRO.tag('div')
             .addClass(`${this._dataKey}-modal`)
             .hide()
-          this._image = Pro.tag('img')
+          this._image = PRO.tag('img')
             .addClass(`${this._dataKey}-image`)
             .hide()
-          this._next = Pro.tag('div')
+          this._next = PRO.tag('div')
             .addClass(`${this._dataKey}-next`)
             .hide()
-          this._prev = Pro.tag('div')
+          this._prev = PRO.tag('div')
             .addClass(`${this._dataKey}-prev`)
             .hide()
-          this._close = Pro.tag('div')
+          this._close = PRO.tag('div')
             .addClass(`${this._dataKey}-close`)
           this._content.append(this._modal)
           this._content.append(this._image)
@@ -135,7 +134,7 @@
       }
 
       constructor (options) {
-        this._options = Pro.assign({}, Default, options)
+        this._options = PRO.assign({}, Default, options)
         this._stack = {}
         // this._group = this._path = null
         PROlightBox._init(this)
@@ -250,15 +249,15 @@
     return PROlightBox
   })()
 
-  Pro.LightBox = PROlightBox
+  PRO.LightBox = PROlightBox
 
-  Pro.prototype[PROlightBox.name] = function () {
+  PRO.prototype[PROlightBox.name] = function () {
     const instance = new PROlightBox(...arguments)
     return this.each(el => instance.load(el))
   }
 
-  Pro[PROlightBox.name] = function () {
-    new Pro(`[data-${PROdata.toKey(PROlightBox.default.attribute)}]`)[PROlightBox.name](...arguments)
+  PRO[PROlightBox.name] = function () {
+    PRO(`[data-${PROdata.toKey(PROlightBox.default.attribute)}]`)[PROlightBox.name](...arguments)
     return this
   }
 })(window, document, PRO)

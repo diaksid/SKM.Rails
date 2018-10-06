@@ -1,8 +1,6 @@
 (function (PRO) {
-  const Pro = PRO()
-
   const PROyandexMetrika = function (selector = '[data-yandex-metrika]') {
-    return Pro.to(selector).each(element => {
+    return PRO.to(selector).each(element => {
       if (element.dataset && element.dataset.yandexMetrika) {
         PRO(element)
           .deactive()
@@ -14,12 +12,12 @@
     })
   }
 
-  Pro.yandexMetrika = function () {
+  PRO.yandexMetrika = function () {
     PROyandexMetrika(...arguments)
     return this
   }
 
-  Pro.prototype.yandexMetrika = function () {
+  PRO.prototype.yandexMetrika = function () {
     PROyandexMetrika(this)
     return this
   }

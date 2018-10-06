@@ -1,6 +1,4 @@
 (function (window, document, PRO) {
-  const Pro = PRO()
-
   const Default = {
     selector: '.c-ymap',
     zoom: 14,
@@ -12,17 +10,17 @@
 
   class Ymaps {
     constructor (options) {
-      this.options = Pro.assign({}, Default, options)
+      this.options = PRO.assign({}, Default, options)
     }
 
     load (selector) {
-      this.select = Pro.to(selector || this.options.selector)
+      this.select = PRO.to(selector || this.options.selector)
       if (this.select.length) {
         const fn = () => ymaps.ready(() => this.select.each(el => this._ymap(el)))
         if (window.ymaps) {
           fn()
         } else {
-          Pro.script(`//api-maps.yandex.ru/2.1/?lang=${this.options.locale || 'ru_RU'}`, fn)
+          PRO.script(`//api-maps.yandex.ru/2.1/?lang=${this.options.locale || 'ru_RU'}`, fn)
         }
       }
     }
@@ -74,8 +72,8 @@
     }
   }
 
-  Pro.ymaps = function (selector, options) {
-    if (Pro.isObject(selector)) {
+  PRO.ymaps = function (selector, options) {
+    if (PRO.isObject(selector)) {
       options = selector
       selector = null
     }

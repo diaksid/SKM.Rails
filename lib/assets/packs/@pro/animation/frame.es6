@@ -1,10 +1,8 @@
 (function (window, PRO) {
-  const Pro = PRO()
-
   const ANIMATION_DELAY = 60
   const ANIMATION_DURATION = 1000
 
-  Pro.animation = {
+  PRO.animation = {
     delay: ANIMATION_DELAY,
     duration: ANIMATION_DURATION,
 

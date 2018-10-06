@@ -1,6 +1,4 @@
 (function (PRO) {
-  const Pro = PRO()
-
   class PROjson {
     static to (data) {
       return JSON.stringify(data)
@@ -13,5 +11,5 @@
     }
   }
 
-  Pro.json = PROjson
+  PRO.json = PROjson
 })(PRO)

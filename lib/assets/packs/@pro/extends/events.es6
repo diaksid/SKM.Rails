@@ -1,7 +1,5 @@
 (function (window, document, PRO) {
-  const Pro = PRO()
-
-  Pro.assign({
+  PRO.assign({
     on (element, type, callback) {
       if (typeof element === 'string') {
         callback = type
@@ -48,7 +46,7 @@
     }
   })
 
-  Pro.assign({
+  PRO.assign({
     on (type, callback) {
       return this.each(function () {
         this.addEventListener(type, callback)
@@ -63,7 +61,7 @@
 
     onclick (callback) {
       return this.each(function () {
-        Pro.onclick(this, callback)
+        PRO.onclick(this, callback)
       })
     }
   }, true)

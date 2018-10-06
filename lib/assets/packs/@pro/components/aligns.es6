@@ -1,10 +1,9 @@
 (function (PRO) {
-  const Pro = PRO()
-  const PROinnerHeight = Pro.innerHeight
+  const PROinnerHeight = PRO.innerHeight
 
   const PROaligns = function (selector, context) {
     let val = 0
-    return new Pro(selector, context)
+    return PRO(selector, context)
       .each(function () {
         this.style.height = ''
         const height = PROinnerHeight(this)
@@ -17,12 +16,12 @@
       })
   }
 
-  Pro.aligns = function () {
+  PRO.aligns = function () {
     PROaligns(...arguments)
     return this
   }
 
-  Pro.prototype.aligns = function (selector) {
+  PRO.prototype.aligns = function (selector) {
     if (selector) {
       this.each(function () {
         PROaligns(selector, this)

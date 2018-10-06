@@ -1,6 +1,4 @@
 (function (PRO) {
-  const Pro = PRO()
-
   const PROnewEvent = function (name, bubble = false, cancelable = false) {
     let event
     if (typeof Event === 'function') {
@@ -47,7 +45,7 @@
     return element.addEventListener('scroll', callback)
   }
 
-  Pro.assign({
+  PRO.assign({
     newEvent: PROnewEvent,
 
     onReady () {

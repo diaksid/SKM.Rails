@@ -1,8 +1,6 @@
 (function (PRO) {
-  const Pro = PRO()
-
   const PROw3c = function (selector = '[data-w3c]') {
-    return Pro.to(selector)
+    return PRO.to(selector)
       .deactive()
       .onclick(() => window.open(
         `//validator.w3.org/nu/?doc=${encodeURIComponent(location.href)}&showsource=yes&showoutline=yes`,
@@ -10,12 +8,12 @@
       ))
   }
 
-  Pro.w3c = function () {
+  PRO.w3c = function () {
     PROw3c(...arguments)
     return this
   }
 
-  Pro.prototype.w3c = function () {
+  PRO.prototype.w3c = function () {
     PROw3c(this)
     return this
   }

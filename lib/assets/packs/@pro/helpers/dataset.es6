@@ -1,6 +1,4 @@
 (function (PRO) {
-  const Pro = PRO()
-
   class PROdata {
     static toKey (str, suffix) {
       if (suffix) {
@@ -36,5 +34,5 @@
     }
   }
 
-  Pro.data = PROdata
+  PRO.data = PROdata
 })(PRO)

@@ -1,20 +1,18 @@
 (function (window, documentElement, PRO) {
-  const Pro = PRO()
-
-  Pro.assign({
+  PRO.assign({
     scroll (x, y, options, callback) {
       if (typeof options === 'function') {
         callback = options
         options = null
       }
-      options = Pro.assign({ duration: Pro.animation.duration }, options)
-      let steps = options.duration / Pro.animation.delay
+      options = PRO.assign({ duration: PRO.animation.duration }, options)
+      let steps = options.duration / PRO.animation.delay
       let stepX = ((window.pageXOffset || documentElement.scrollLeft) - x) / steps
       let stepY = ((window.pageYOffset || documentElement.scrollTop) - y) / steps
       let render = () => {
         window.scrollBy(-stepX, -stepY)
         if (--steps) {
-          Pro.animation.request(render, window)
+          PRO.animation.request(render, window)
         } else {
           window.scrollTo(x, y)
           if (typeof callback === 'function') {
@@ -62,7 +60,7 @@
           if (selector &&
             !this.classList.contains('is-active') &&
             !this.parentNode.classList.contains('is-active')) {
-            selector === '#' ? Pro.scrollToTop(options, callback) : Pro.scrollToObj(selector, options, callback)
+            selector === '#' ? PRO.scrollToTop(options, callback) : PRO.scrollToObj(selector, options, callback)
           }
         })
       return this

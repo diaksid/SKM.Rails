@@ -1,6 +1,5 @@
 (function (window, document, PRO) {
-  const Pro = PRO()
-  const PROonReady = Pro.onready
+  const PROonReady = PRO.onready
 
   function pathCheck (path) {
     if (path.indexOf('//') === -1 && path[0] !== '/') {
@@ -65,12 +64,12 @@
     }
   }
 
-  Pro.stylesheet = function () {
+  PRO.stylesheet = function () {
     PROstylesheet(...arguments)
     return this
   }
 
-  Pro.script = function () {
+  PRO.script = function () {
     PROscript(...arguments)
     return this
   }

@@ -1,6 +1,4 @@
 (function (window, PRO) {
-  const Pro = PRO()
-
   function getRect (el) {
     return typeof el.getBoundingClientRect === 'function'
       ? el.getBoundingClientRect()
@@ -89,7 +87,7 @@
     }
   }
 
-  Pro.assign({
+  PRO.assign({
     innerHeight: PROinnerHeight,
     innerWidth: PROinnerWidth,
     outerHeight: PROouterHeight,
@@ -110,8 +108,8 @@
     'offset',
     'view'
   ]) {
-    Pro.prototype[method] = function (param) {
-      return this.length && Pro[method](this.first, param)
+    PRO.prototype[method] = function (param) {
+      return this.length && PRO[method](this.first, param)
     }
   }
 })(window, PRO);

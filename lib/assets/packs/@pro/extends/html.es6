@@ -1,6 +1,4 @@
 (function (PRO) {
-  const Pro = PRO()
-
   const PROstyle = function (el, data) {
     if (typeof data === 'object') {
       for (let key in data) {
@@ -15,9 +13,9 @@
     }
   }
 
-  Pro.style = PROstyle
+  PRO.style = PROstyle
 
-  Pro.assign({
+  PRO.assign({
     html (value = null) {
       if (value !== null) {
         return this.each(el => {
@@ -52,7 +50,7 @@
 
     append (child) {
       if (child && this.length) {
-        Pro.to(child).each(el => {
+        PRO.to(child).each(el => {
           this.first.appendChild(el)
         })
       }
