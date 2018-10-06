@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="IHOR CCK vps" createEmptyFolders="true" exclude=".svn;.cvs;.idea;.DS_Store;.git*;.hg;.keep;*.md;*.sqlite3;node_modules">
+  <component name="PublishConfigData" serverName="IHOR CCK vps" createEmptyFolders="true" exclude=".svn;.cvs;.idea;.DS_Store;.git*;.hg;.keep;*.md;*.sqlite3;node_modules;.master">
     <serverData>
       <paths name="IHOR CCK dev">
         <serverdata>
