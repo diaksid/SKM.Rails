@@ -70,6 +70,7 @@
           }
           PROdata.setSet(element, DATA_KEY, 'loaded')
         }
+        return this
       }
 
       _html () {

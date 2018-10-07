@@ -65,6 +65,7 @@
           item._appear()
           this._items.push(item)
         }
+        return this
       }
 
       _update () {
