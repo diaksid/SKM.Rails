@@ -33,6 +33,8 @@
   }
 
   PRO.assign({
+    debug: false,
+
     to (data) {
       return data instanceof Pro ? data : new Pro(data)
     },
@@ -44,8 +46,6 @@
     count (data) {
       return data.length !== null ? data.length : [].slice.call(data).length
     },
-
-    debug: false,
 
     console (type, message) {
       if (this.debug) {
@@ -101,6 +101,18 @@
       this.find(selector)
     }
 
+    get length () {
+      return this._target.length
+    }
+
+    get first () {
+      return this._target[0]
+    }
+
+    get isConnected () {
+      return this._target.every(el => el.isConnected)
+    }
+
     find (selector) {
       this.selector = selector
       this.context = this._target
@@ -121,18 +133,6 @@
         }
       }
       return this
-    }
-
-    get length () {
-      return this._target.length
-    }
-
-    get first () {
-      return this._target[0]
-    }
-
-    get isConnected () {
-      return this._target.every(el => el.isConnected)
     }
   }
 
