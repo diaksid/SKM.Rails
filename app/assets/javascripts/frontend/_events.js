@@ -18,7 +18,10 @@
   PRO.fn.onload = function () {
     PRO.fn.aligns()
     PRO
-      .lazyload('.mdl-layout__content', { reset: 'turbolinks:before-cache' })
+      .lazyload({
+        scope: '.mdl-layout__content',
+        reset: 'turbolinks:before-cache'
+      })
       .ymaps('.c-content__ymap')
     PRO('[data-click]').each(function () {
       PRO.onclick(this, this.dataset.click)
