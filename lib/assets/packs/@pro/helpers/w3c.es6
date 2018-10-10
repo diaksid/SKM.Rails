@@ -8,12 +8,14 @@
       ))
   }
 
-  PRO.w3c = function () {
+  const NAME = 'w3c'
+
+  PRO[NAME] = function () {
     PROw3c(...arguments)
     return this
   }
 
-  PRO.prototype.w3c = function () {
+  PRO.prototype[NAME] = function () {
     PROw3c(this)
     return this
   }

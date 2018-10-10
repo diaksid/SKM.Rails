@@ -8,7 +8,6 @@
   const $document = PRO(document)
 
   const PROlazyLoad = (function () {
-    const NAME = 'lazyload'
     const VERSION = '0.0.1'
 
     const DATA_KEY = 'lazyload'
@@ -87,10 +86,6 @@
         this._items = []
       }
 
-      static get name () {
-        return NAME
-      }
-
       static get version () {
         return VERSION
       }
@@ -112,17 +107,16 @@
       constructor (element, options) {
         this._element = element
         this._obj = PRO(this._element)
-        // this._scope = scope
-        this._options = options
-        this._delay = this._element.dataset[`${this._options.attribute}Delay`] || this._options.delay
-        this._duration = this._element.dataset[`${this._options.attribute}Duration`] || this._options.duration
-        this._opacity = this._element.dataset[`${this._options.attribute}Opacity`] || 1
+        this._scope = options.scope && PRO(options.scope)
+        this._delay = this._element.dataset[`${options.attribute}Delay`] || options.delay
+        this._duration = this._element.dataset[`${options.attribute}Duration`] || options.duration
+        this._opacity = this._element.dataset[`${options.attribute}Opacity`] || 1
         this._appearance = this._opacity * PRO.tweens.delay / this._duration
         this._obj.on(Events.APPEAR, this._appear.bind(this))
+        this._options = options
       }
 
       _appear () {
-        // let res = ['loading', 'loaded', 'error', 'reset'].indexOf(this._dataKey) >= 0
         let res = !!this._dataKey
         if (!res) {
           res = !this._above() && !this._below() && !this._right() && !this._left()
@@ -165,34 +159,34 @@
       }
 
       _above () {
-        /* const val = this.options.scope
-          ? this.options.scope.offset().top
-          : window.pageYOffset */
-        return window.pageYOffset >=
+        const val = this._scope
+          ? this._scope.offset().top
+          : window.pageYOffset
+        return val >=
           PROouterHeight(this._element) + PROoffset(this._element).top + this._options.threshold
       }
 
       _below () {
-        /* const val = this.options.scope
-          ? this.options.scope.innerHeight() + this.options.scope.offset().top
-          : window.innerHeight + window.pageYOffset */
-        return window.innerHeight + window.pageYOffset <=
+        const val = this._scope
+          ? this._scope.innerHeight() + this._scope.offset().top
+          : window.innerHeight + window.pageYOffset
+        return val <=
           PROoffset(this._element).top - this._options.threshold
       }
 
       _right () {
-        /* const val = this.options.scope
-          ? this.options.scope.innerWidth() + this.options.scope.offset().left
-          : window.innerWidth + window.pageXOffset */
-        return window.innerWidth + window.pageXOffset <=
+        const val = this._scope
+          ? this._scope.innerWidth() + this._scope.offset().left
+          : window.innerWidth + window.pageXOffset
+        return val <=
           PROoffset(this._element).left - this._options.threshold
       }
 
       _left () {
-        /* const val = this.options.scope
-          ? this.options.scope.offset().left
-          : window.pageXOffset */
-        return window.pageXOffset >=
+        const val = this._scope
+          ? this._scope.offset().left
+          : window.pageXOffset
+        return val >=
           PROouterWidth(this._element) + PROoffset(this._element).left + this._options.threshold
       }
 
@@ -217,7 +211,6 @@
           this._element.style.backgroundImage = `url("${this._options.mask}")`
         }
         this._dataKey = 'reset'
-        // delete this
       }
 
       get _dataKey () {
@@ -232,14 +225,16 @@
     return PROlazyLoad
   })()
 
+  const NAME = 'lazyLoad'
+
   PRO.LazyLoad = PROlazyLoad
 
-  PRO.prototype[PROlazyLoad.name] = function () {
+  PRO.prototype[NAME] = function () {
     (() => new PROlazyLoad(this, ...arguments))()
     return this
   }
 
-  PRO[PROlazyLoad.name] = function () {
+  PRO[NAME] = function () {
     (() => new PROlazyLoad(...arguments))()
     return this
   }

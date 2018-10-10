@@ -2,7 +2,6 @@
   const PROdata = PRO.data
 
   const PROlightBox = (function () {
-    const NAME = 'lightbox'
     const VERSION = '0.0.1'
 
     const DATA_KEY = 'lightbox'
@@ -43,8 +42,7 @@
 
       _load (element) {
         if (!PROdata.getSet(element, DATA_KEY)) {
-          const path = element.dataset[PROdata.toSet(this._options.attribute, 'href')] || element.dataset.href ||
-            element.getAttribute('href') || element.getAttribute('src')
+          const path = element.dataset.href || element.getAttribute('href') || element.getAttribute('src')
           if (path) {
             const group = (path[0] === '#') ? 'html' : PROdata.getSet(element, this._options.attribute)
             if (group && group !== 'html') {
@@ -143,10 +141,6 @@
         }
         this._path = this._stack[this._group][index]
         this._hide(() => this._draw(true))
-      }
-
-      static get name () {
-        return NAME
       }
 
       static get version () {
@@ -259,14 +253,16 @@
     return PROlightBox
   })()
 
+  const NAME = 'lightBox'
+
   PRO.LightBox = PROlightBox
 
-  PRO.prototype[PROlightBox.name] = function () {
+  PRO.prototype[NAME] = function () {
     (() => new PROlightBox(this, ...arguments))()
     return this
   }
 
-  PRO[PROlightBox.name] = function () {
+  PRO[NAME] = function () {
     (() => new PROlightBox(...arguments))()
     return this
   }

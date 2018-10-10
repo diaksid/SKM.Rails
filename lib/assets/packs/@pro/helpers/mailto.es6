@@ -13,12 +13,14 @@
     })
   }
 
-  PRO.mailto = function () {
+  const NAME = 'mailTo'
+
+  PRO[NAME] = function () {
     PROmailto(...arguments)
     return this
   }
 
-  PRO.prototype.mailto = function () {
+  PRO.prototype[NAME] = function () {
     PROmailto (this)
     return this
   }

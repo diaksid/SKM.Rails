@@ -55,9 +55,9 @@ module ImageHelper
       attrs[:class] += ['h-bg--cover']
       attrs[:class] += local[:align].nil? ? [] : ["h-bg--cover-#{local[:align]}"]
       attrs[:data] ||= {}
-      unless local[:lightbox].nil?
-        attrs[:data][:light] = local[:lightbox]
-        attrs[:data][:light_href] = url_for(object.variant resize_to_area 800, 600)
+      unless local[:light].nil?
+        attrs[:data][:light] = local[:light]
+        attrs[:data][:href] = url_for(object.variant resize_to_area 800, 600)
       end
       variant = local[:fit] ? resize_to_fit(attrs[:width], attrs[:height]) :
                               resize_to_fill(attrs[:width], attrs[:height])

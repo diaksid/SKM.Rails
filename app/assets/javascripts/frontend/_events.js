@@ -8,9 +8,9 @@
     PRO.fn.submit()
     PRO
       .base64()
-      .mailto()
+      .mailTo()
       .scrollTo()
-      .lightbox()
+      .lightBox()
       .onResize(PRO.fn.aligns)
     return this
   }
@@ -18,11 +18,11 @@
   PRO.fn.onload = function () {
     PRO.fn.aligns()
     PRO
-      .lazyload({
+      .lazyLoad({
         scope: '.mdl-layout__content',
         reset: 'turbolinks:before-cache'
       })
-      .ymaps('.c-content__ymap')
+      .yandexMap('.c-content__ymap')
     PRO('[data-click]').each(function () {
       PRO.onclick(this, this.dataset.click)
     })

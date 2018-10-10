@@ -7,7 +7,7 @@
     end
     locals = {class: ['c-img--response',
                       'h-width--100'],
-              lightbox: '%s-lightbox' % action_name,
+              light: '%s-lightbox' % action_name,
               links: true,
               wrapper: {class: ['mdl-cell',
                                 'mdl-cell--3-col-desktop']}}
@@ -29,4 +29,4 @@
         /= render partial: 'images/canvas', collection: @model.images, cached: true,
                  layout: 'images/thumbnail',
                  locals: {class_name: 'c-img--response',
-                          lightbox: 'content'}
+                          light: 'content'}

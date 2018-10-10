@@ -8,7 +8,7 @@
     preset: 'islands#redDotIcon'
   }
 
-  class Ymaps {
+  class PROyandexMap {
     constructor (options) {
       this.options = PRO.assign({}, Default, options)
     }
@@ -72,13 +72,15 @@
     }
   }
 
-  PRO.ymaps = function (selector, options) {
+  const NAME = 'yandexMap'
+
+  PRO[NAME] = function (selector, options) {
     if (PRO.isObject(selector)) {
       options = selector
       selector = null
     }
-    this.Ymaps = this.Ymaps || new Ymaps(options)
-    this.Ymaps.load(selector)
+    this.PROyandexMap = this.PROyandexMap || new PROyandexMap(options)
+    this.PROyandexMap.load(selector)
     return this
   }
 })(window, document, PRO)

@@ -7,12 +7,14 @@
     })
   }
 
-  PRO.base64 = function () {
+  const NAME = 'base64'
+
+  PRO[NAME] = function () {
     PRObase64(...arguments)
     return this
   }
 
-  PRO.prototype.base64 = function () {
+  PRO.prototype[NAME] = function () {
     PRObase64(this)
     return this
   }

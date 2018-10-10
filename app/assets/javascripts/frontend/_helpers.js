@@ -18,10 +18,9 @@
   }
 
   PRO.fn.snackbar = function () {
-    var el = document.querySelector('.mdl-js-snackbar')
-    if (el) {
+    var element = document.querySelector('.mdl-js-snackbar')
+    if (element) {
       document.querySelectorAll('.c-message--flash').forEach(function (msg) {
-        alert(typeof msg)
         var options = { message: msg.innerHTML }
         if (msg.dataset && msg.dataset.type) {
           options.actionText = msg.dataset.type
@@ -29,7 +28,7 @@
             alert(msg.innerHTML)
           }
         }
-        el.MaterialSnackbar.showSnackbar(options)
+        element.MaterialSnackbar.showSnackbar(options)
       })
     }
     return this

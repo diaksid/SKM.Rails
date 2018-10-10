@@ -12,12 +12,14 @@
     })
   }
 
-  PRO.yandexMetrika = function () {
+  const NAME = 'yandexMetrika'
+
+  PRO[NAME] = function () {
     PROyandexMetrika(...arguments)
     return this
   }
 
-  PRO.prototype.yandexMetrika = function () {
+  PRO.prototype[NAME] = function () {
     PROyandexMetrika(this)
     return this
   }
