@@ -1,17 +1,9 @@
+Yandex:
+
+    masshtab.sk +1234567
+
+-----
+
 Google:
 
-    @       MX          aspmx.l.google.com.                     1
-    @       MX          alt1.aspmx.l.google.com.                5
-    @       MX          alt2.aspmx.l.google.com.                5
-    @       MX          alt3.aspmx.l.google.com.                10
-    @       MX          alt4.aspmx.l.google.com.                10
-
-    @       TXT         v=spf1 include:_spf.google.com ~all
-
-Mail.RU:
-
-    @       CNAME       biz.mail.ru.
-
-    @       MX          emx.mail.ru.                            10
-
-    @       TXT         v=spf1 redirect=_spf.mail.ru
+    masshtab.sk +1234567
