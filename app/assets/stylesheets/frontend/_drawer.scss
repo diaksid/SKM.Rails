@@ -2,8 +2,9 @@
   padding-bottom: 16px;
 
   .mdl-layout-title {
-    height: ($layout-drawer-width * .75);
-    background: image_url('rails/ruby.svg') center no-repeat unquote("rgb(#{$palette-blue-grey-900})");
+    height: ($layout-drawer-width * 0.75);
+    // background: image_url('rails/ruby.svg') center no-repeat unquote("rgb(#{$palette-blue-grey-900})");
+    background: image_url('masshtab.jpg') center no-repeat white;
     background-size: auto 50%;
   }
 }

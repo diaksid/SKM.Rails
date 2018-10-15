@@ -21,6 +21,7 @@ module YandexHelper
             })
           });
           e = d.createElement('script');
+          e['data-turbolinks-track'] = 'reload';
           e.async = true;
           e.src = 'https://mc.yandex.ru/metrika/watch.js';
           d.head.appendChild(e)
@@ -46,6 +47,7 @@ module YandexHelper
             })
           });
           e = d.createElement('script');
+          e['data-turbolinks-track'] = 'reload';
           e.async = true;
           e.src = 'https://site.yandex.net/v2.0/js/all.js';
           d.head.appendChild(e)
