@@ -2,7 +2,7 @@ Yandex:
 
     masshtab.sk +1234567
 
-    скм.москва:
+    скм.москва (xn--j1aen.xn--80adxhks):
         yamail-f312017723f9         CNAME       mail.yandex.ru.
         mail                        CNAME       domain.mail.yandex.net.
         @                           MX          10      mx.yandex.net.
@@ -22,7 +22,7 @@ Google:
 
     masshtab.sk +1234567
 
-    скм.москва:
+    скм.москва (xn--j1aen.xn--80adxhks):
         @                           TXT         google-site-verification=aDlwYIqya4_hKflYcWCDlGuOomwcRiFi98k9YRT5NuY
 
     skm.moscow:
