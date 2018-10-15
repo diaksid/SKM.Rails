@@ -4,8 +4,8 @@
       if (element.dataset && element.dataset.yandexMetrika) {
         PRO(element)
           .deactive()
-          .onclick(el => window.open(
-            `//metrika.yandex.ru/dashboard?id=${el.dataset.yandexMetrika}`,
+          .onclick(() => window.open(
+            `//metrika.yandex.ru/dashboard?id=${element.dataset.yandexMetrika}`,
             '_blank'
           ))
       }

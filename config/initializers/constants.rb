@@ -1,6 +1,6 @@
 # Yandex
-YANDEX = {metrika: 38547645,
-          search: 2275317}
+YANDEX = {metrika: 50742001,
+          search: 2331364}
 
 # Google
 GOOGLE = {analytics: nil}

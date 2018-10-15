@@ -11,16 +11,21 @@ footer#footer.mdl-mini-footer
 
   .mdl-mini-footer__right-section
     small%copyrightHolder>
-      a%author.h-text--href[
+      a%author.h-text--href(
         href='//daks.pro?rel=author'
         target='_blank'
-        ] DAkS
+        ) DAkS
     ' &copy;
     small%copyrightYear> = DateTime.now.year
 
+    - if YANDEX[:metrika]
+      button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect(
+        data={'yandex-metrika': YANDEX[:metrika]}
+        )
+        i.material-icons signal_cellular_alt
     - if user_signed_in?
       - if current_user.staff?
-        button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect[data-w3c=true]
+        button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect data-w3c
           i.material-icons bug_report
-    button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect[data-click='/admin']
+    button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect data={click: '/admin'}
       i.material-icons settings

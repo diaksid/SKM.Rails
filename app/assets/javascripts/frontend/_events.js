@@ -3,13 +3,13 @@
 
   PRO.fn.onready = function () {
     PRO('a.is-active, .is-active > a').deactive()
-    PRO('[data-ymet]').yandexMetrika()
-    PRO('[data-w3c]').w3c()
     PRO.fn.submit()
     PRO
       .base64()
       .mailTo()
       .scrollTo()
+      .w3c()
+      .yandexMetrika()
       .lightBox()
       .onResize(PRO.fn.aligns)
     return this
