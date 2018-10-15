@@ -25,7 +25,7 @@ footer#footer.mdl-mini-footer
         i.material-icons signal_cellular_alt
     - if user_signed_in?
       - if current_user.staff?
-        button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect data-w3c
+        button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect data={w3c: true}
           i.material-icons bug_report
     button&button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect data={click: '/admin'}
       i.material-icons settings
