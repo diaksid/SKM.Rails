@@ -2,8 +2,28 @@ Yandex:
 
     masshtab.sk +1234567
 
+    скм.москва:
+        yamail-f312017723f9         CNAME       mail.yandex.ru.
+        mail                        CNAME       domain.mail.yandex.net.
+        @                           MX          10      mx.yandex.net.
+        @                           TXT         yandex-verification: e659bfceb22f0496
+        @                           TXT         v=spf1 redirect=_spf.yandex.net
+        mail._domainkey             TXT         v=DKIM1; k=rsa; t=s; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCid9xnBJRd1/LvBOLyEP50jf5J39bVQ/g92gnuCDsuXlJgJlkBaP2cwygM3wAk3RrTxG3xFXY88U4A7wDwmqErit6mg4oaOqEICfRnZRDZtBDkc8/id4USIjjcySNHyNTwNKlEZK6Z2eHlhW/caJVHsYd8QwvfH0QHb3bCfW13uwIDAQAB
+
+    skm.moscow:
+        yamail-18101510092881972    CNAME       mail.yandex.ru.
+        mail                        CNAME       domain.mail.yandex.net.
+        @                           TXT         yandex-verification: 4e9bc9376459c322
+        @                           TXT         v=spf1 redirect=_spf.yandex.net
+
 -----
 
 Google:
 
     masshtab.sk +1234567
+
+    скм.москва:
+        @                           TXT         google-site-verification=aDlwYIqya4_hKflYcWCDlGuOomwcRiFi98k9YRT5NuY
+
+    skm.moscow:
+        @                           TXT         google-site-verification=U7_ARkOsYg0ebff1BRmd-AoShtHz--DdyWYhoR2dYy4
