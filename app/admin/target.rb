@@ -114,7 +114,7 @@ ActiveAdmin.register Target do
       row :geo
       row :website
     end
-    panel 'Деятельность' do
+    panel I18n.t('active_admin.panels.activity') do
       attributes_table_for resource do
         row :areas do |model|
           model.areas_show '<br>'
@@ -294,6 +294,12 @@ ActiveAdmin.register Target do
 
 
   controller do
+    def create
+      super do |format|
+        redirect_to edit_admin_target_path(resource) and return if resource.valid?
+      end
+    end
+
     def update
       params[:target][:area_ids] = [] unless params[:target].include? :area_ids
       purge = []

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2016_04_01_000800) do
     t.boolean "navigated", default: false
     t.string "name", null: false
     t.string "header"
-    t.text "content", null: false
+    t.text "content"
     t.boolean "partial", default: false
     t.string "title"
     t.string "keywords"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2016_04_01_000800) do
     t.integer "ancestry_depth", default: 0
     t.index ["ancestry"], name: "index_activities_on_ancestry"
     t.index ["index"], name: "index_activities_on_index"
-    t.index ["name"], name: "index_activities_on_name"
+    t.index ["name"], name: "index_activities_on_name", unique: true
     t.index ["navigated"], name: "index_activities_on_navigated"
     t.index ["published"], name: "index_activities_on_published"
   end

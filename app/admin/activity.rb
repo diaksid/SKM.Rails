@@ -8,13 +8,16 @@ ActiveAdmin.register Activity do
                 :title, :keywords, :description, :canonical, :robots,
                 :index,
                 :parent_id,
-                area_ids: [],
+                :attaches_purge, attaches: [], attaches_attachments_attributes: [:id, :index, :_destroy],
+                area_ids: []
+=begin
                 images_attributes: [:id, :index,
                                     :title, :description, :alt,
                                     :upload, :upload_crop,
                                     :_destroy]
+=end
 
-  includes :areas, :images
+  includes :areas, :attaches_attachments # :images
 
 
   scope :all, default: true
@@ -22,7 +25,7 @@ ActiveAdmin.register Activity do
 
 
   sortable tree: true,
-           max_levels: 3,
+           max_levels: 2,
            sorting_attribute: :index
   # config.paginate = true
 
@@ -37,6 +40,7 @@ ActiveAdmin.register Activity do
   index default: true do
     selectable_column
     id_column
+    column_aimg :attach, class: 'h-width--icon'
     column :published, class: 'h-size--bool'
     column :navigated, class: 'h-size--bool'
     column :name
@@ -75,7 +79,13 @@ ActiveAdmin.register Activity do
       row :partial
       row_html :content, class: 'h-text--readable'
     end
-# =begin
+    panel I18n.t('active_admin.panels.images', count: resource.attaches.count) do
+      render partial: 'admin/show/images'
+    end unless resource.attaches.empty?
+    panel I18n.t('active_admin.panels.seo') do
+      render partial: 'admin/show/seo'
+    end
+=begin
     panel 'Изображения' do
       table_for resource.images do
         column :id, class: 'h-size--integer' do |model|
@@ -95,10 +105,7 @@ ActiveAdmin.register Activity do
         end
       end
     end unless resource.images.empty?
-# =end
-    panel I18n.t('active_admin.panels.seo') do
-      render partial: 'admin/show/seo'
-    end
+=end
     active_admin_comments
   end
 
@@ -132,11 +139,17 @@ ActiveAdmin.register Activity do
                   input_html: {class: 'h-size--40'}
           f.input :header
           f.input :partial, as: :select, include_blank: false,
-                  input_html: {class: 'control-select'}
+                  input_html: {class: 'c-control-select'}
           f.input :content, as: :redactor
         end
       end
-# =begin
+      tab I18n.t('active_admin.panels.images', count: f.object.attaches.count) do
+        render partial: 'admin/form/images', locals: {form: f}
+      end unless f.object.new_record?
+      tab I18n.t('active_admin.panels.seo') do
+        render partial: 'admin/form/seo', locals: {form: f}
+      end
+=begin
       tab 'Изображения' do
         f.inputs do
           f.has_many :images, heading: false, class: 'has-upload_icon',
@@ -156,10 +169,7 @@ ActiveAdmin.register Activity do
           end
         end
       end unless f.object.new_record?
-# =end
-      tab I18n.t('active_admin.panels.seo') do
-        render partial: 'admin/form/seo', locals: {form: f}
-      end
+=end
     end
     f.actions
   end
@@ -185,7 +195,53 @@ ActiveAdmin.register Activity do
     end
   end
 
+  sidebar I18n.t('activerecord.attributes.activity.attach'),
+          priority: 2, only: [:show, :edit, :update] do
+    render partial: 'admin/image', object: resource.attach,
+           locals: {size: 192}
+  end
 
+
+  controller do
+    def create
+      super do |format|
+        redirect_to edit_admin_activity_path(resource) and return if resource.valid?
+      end
+    end
+
+    def update
+      params[:activity][:area_ids] = [] unless params[:activity].include? :area_ids
+      purge = []
+      if params[:activity].include? :attaches_attachments_attributes
+        params[:activity][:attaches_attachments_attributes].each do |idx, param|
+          if param[:_destroy] == '1'
+            purge << param[:id]
+            param[:_destroy] = '0'
+          end
+        end
+      end
+      attaches = params[:activity].include?(:attaches) ? params[:activity].delete('attaches') : false
+      super do |format|
+        if resource.valid?
+          if params[:activity][:attaches_purge] == '1'
+            resource.attaches.purge
+          elsif !purge.empty?
+            ActiveStorage::Attachment.find(purge).each(&:purge)
+          end
+          if attaches
+            resource.attaches.attach attaches
+          end
+          if !resource.attaches.empty? && (!purge.empty? || attaches)
+            resource.attaches.order(:index).each.with_index do |item, idx|
+              item.update_column :index, idx
+            end
+          end
+        end
+      end
+    end
+  end
+
+=begin
   action_item :images_recreate_versions, only: :index do
     link_to 'Перемонтировать изображения',
             images_recreate_versions_admin_activities_path,
@@ -208,5 +264,5 @@ ActiveAdmin.register Activity do
       redirect_back fallback_location: admin_dashboard_path, notice: "[#{done}] Изображения модели перемонтированы!"
     end
   end
-
+=end
 end

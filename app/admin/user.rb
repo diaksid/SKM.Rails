@@ -123,6 +123,12 @@ ActiveAdmin.register User do
 
 
   controller do
+    def create
+      super do |format|
+        redirect_to edit_admin_user_path(resource) and return if resource.valid?
+      end
+    end
+
     def update
       if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
         params[:user].delete('password')

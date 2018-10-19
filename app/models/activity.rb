@@ -1,7 +1,8 @@
 class Activity < ApplicationRecord
   include WebPage
   include HasAreas
-  include HasImages
+  include HasAttachments
+  # include HasImages
 
   has_ancestry orphan_strategy: :rootify,
                cache_depth: true
@@ -13,10 +14,14 @@ class Activity < ApplicationRecord
   default_scope { order(:ancestry, :index) }
 
 
-  validates_presence_of :name, :content
+  validates_presence_of :name
+  validates_uniqueness_of :name,
+                          case_sensitive: false
 
   before_save :check_attributes
   after_save :check_partial
+
+  paginates_per 10
 
 
   def targets

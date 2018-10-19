@@ -230,14 +230,11 @@ ActiveAdmin.register Permit do
 
 
   controller do
-=begin
     def create
       super do |format|
         redirect_to edit_admin_permit_path(resource) and return if resource.valid?
       end
     end
-=end
-
 
     def update
       purge = []
