@@ -6,16 +6,25 @@ ActiveAdmin.register Article do
   permit_params :published, :published_at,
                 :header, :annotation, :content,
                 :upload,
-                :title, :keywords, :description, :canonical, :robots
+                :title, :keywords, :description, :canonical, :robots,
+                :attach, :attach_purge
 
 
   scope :all, default: true
+  scope :unscoped
+
+  filter :header
+  filter :published
+  filter :navigated
+  filter :created_at
 
   index do
     selectable_column
     id_column
-    column :published, class: 'h-width--boolean'
+    column_aimg :attach, class: 'h-width--icon'
+    column :published, class: 'h-width--bool'
     column :published_at, class: 'h-width--date'
+=begin
     column :upload, class: 'h-width--icon', sortable: false do |model|
       link_to admin_article_path(model) do
         imagic_tag model.upload.icon,
@@ -24,40 +33,22 @@ ActiveAdmin.register Article do
                    height: 96
       end
     end
+=end
     column :header, class: 'h-width--20'
     column :annotation
     column :created_at
     actions
   end
 
-  filter :published_at
-  filter :header
-  filter :annotation
-  filter :content
-  filter :updated_at
-  filter :created_at
-
 
   show do
     attributes_table do
       row :header
       row :annotation
-      row :content do |model|
-        div class: 'с-text--readable' do
-          model.content.html_safe
-        end unless model.content.blank?
-      end
+      row_html :content, class: 'h-text--readable'
     end
-    panel 'SEO' do
-      attributes_table_for resource do
-        row :title
-        row :keywords
-        row :description
-      end
-      attributes_table_for resource do
-        row :canonical
-        row :robots
-      end
+    panel I18n.t('active_admin.panels.seo') do
+      render partial: 'admin/show/seo'
     end
     active_admin_comments
   end

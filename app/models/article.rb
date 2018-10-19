@@ -1,8 +1,9 @@
 class Article < ApplicationRecord
   include WebPage
-  include HasUpload
+  include HasAttachment
+  # include HasUpload
 
-  mount_uploader :upload, ArticleUploader
+  # mount_uploader :upload, ArticleUploader
 
 
   validates_presence_of :header

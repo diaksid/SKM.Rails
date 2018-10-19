@@ -7,20 +7,24 @@ ActiveAdmin.register Feedback do
                 :header, :content,
                 :upload,
                 :title, :keywords, :description, :canonical, :robots,
-                :source, :customer_id
+                :source,
+                :customer_id,
+                :attaches_purge, attaches: [], attaches_attachments_attributes: [:id, :index, :_destroy]
 
-  includes :customer
+  includes :customer, :attaches_attachments
 
 
   scope :all, default: true
+  scope :unscoped
 
-  filter :published_at
   filter :header
+  filter :published
+  filter :published_at
+  filter :navigated
   filter :source
   filter :customer,
          input_html: {class: 'c-control-select'},
          unless: proc { Customer.all.empty? }
-  filter :updated_at
   filter :created_at
 
   index do
